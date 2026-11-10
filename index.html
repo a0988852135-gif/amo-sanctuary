@@ -160,19 +160,19 @@ button{font:inherit}
   </section>
 
   <section class="detail" id="detail" aria-live="polite">
-    <div class="detail-panel" id="panel-works" hidden>
+    <div class="detail-panel" id="panel-works" tabindex="-1" hidden>
       <div class="detail-kicker">GATE I · ORIGINAL WORKS</div><h2>貼圖・作品</h2>
       <p>原創貼圖、角色與視覺作品的收藏入口。</p>
       <div class="empty-state">作品展示入口尚未連結。待加入作品網址後，這裡就能成為正式作品廊。</div>
       <button class="close-detail" type="button">收起內容　↑</button>
     </div>
-    <div class="detail-panel" id="panel-video" hidden>
+    <div class="detail-panel" id="panel-video" tabindex="-1" hidden>
       <div class="detail-kicker">GATE II · VIDEO ARCHIVE</div><h2>影音・YouTube</h2>
       <p>音樂影像、短片與影音企劃的收藏入口。</p>
       <div class="empty-state">YouTube 頻道或播放清單尚未連結。加入正式網址後即可由此進入。</div>
       <button class="close-detail" type="button">收起內容　↑</button>
     </div>
-    <div class="detail-panel" id="panel-music" hidden>
+    <div class="detail-panel" id="panel-music" tabindex="-1" hidden>
       <div class="detail-kicker">GATE III · MUSIC SANCTUM</div><h2>音樂・Suno</h2>
       <p>歌曲、歌詞與聲音創作的收藏入口。</p>
       <div class="empty-state">Suno 個人頁或作品連結尚未設定。此處保留正式入口，不放虛構連結。</div>
@@ -193,29 +193,56 @@ button{font:inherit}
   const detail = document.getElementById('detail');
   const menu = document.getElementById('mainNav');
   const menuToggle = document.getElementById('menuToggle');
+  let lastTrigger = null;
 
-  function openPanel(key) {
+  function closePanels(returnFocus = true) {
+    panels.forEach(panel => { panel.hidden = true; });
+    if (returnFocus && lastTrigger) lastTrigger.focus();
+  }
+
+  function openPanel(key, trigger) {
     const target = document.getElementById('panel-' + key);
     if (!target) return;
+    lastTrigger = trigger || document.activeElement;
     panels.forEach(panel => { panel.hidden = panel !== target; });
-    detail.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
-  }
-  document.querySelectorAll('[data-open]').forEach(button => {
-    button.addEventListener('click', () => openPanel(button.dataset.open));
-  });
-  document.querySelectorAll('.close-detail').forEach(button => {
-    button.addEventListener('click', () => {
-      panels.forEach(panel => { panel.hidden = true; });
+    target.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'center'
     });
+    target.focus({ preventScroll: true });
+  }
+
+  document.querySelectorAll('[data-open]').forEach(button => {
+    button.addEventListener('click', () => openPanel(button.dataset.open, button));
   });
+
+  document.querySelectorAll('.close-detail').forEach(button => {
+    button.addEventListener('click', () => closePanels());
+  });
+
   menuToggle.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
+
   menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     menu.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', 'false');
   }));
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const visiblePanel = panels.find(panel => !panel.hidden);
+    if (visiblePanel) {
+      closePanels();
+      return;
+    }
+    if (menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.focus();
+    }
+  });
 })();
 </script>
 </body>
