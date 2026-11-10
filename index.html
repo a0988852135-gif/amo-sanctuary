@@ -4,89 +4,219 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090806">
+<meta name="description" content="AMO 神諭殿堂｜收藏原創作品、影音與音樂的靜謐之所。">
 <title>AMO｜神諭殿堂</title>
 <style>
-  :root{
-    --bg:#090806; --gold:#b99a63; --gold-soft:#8f754b;
-    --ivory:#d9cbb2; --line:rgba(185,154,99,.34);
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;background:var(--bg)}
-  body{margin:0;background:var(--bg);color:var(--ivory);
-       font-family:"Noto Serif TC","Songti TC","PMingLiU",serif}
-  .hero{width:100%;background:#090806;line-height:0}
-  .hero img{display:block;width:100%;height:auto;margin:0 auto}
-  .features{
-    width:min(1180px, calc(100% - 48px)); margin:0 auto;
-    padding:clamp(42px,7vw,88px) 0 90px;
-    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;
-  }
-  .feature{
-    min-height:230px;display:flex;flex-direction:column;align-items:center;
-    justify-content:center;text-align:center;padding:34px 20px;
-    border:1px solid var(--line);border-radius:2px;
-    background:linear-gradient(160deg,rgba(55,42,27,.42),rgba(10,9,7,.92));
-    color:var(--ivory);cursor:pointer;transition:border-color .3s,background .3s,transform .3s;
-  }
-  .feature:hover{border-color:rgba(210,178,117,.8);background:linear-gradient(160deg,rgba(88,65,37,.42),rgba(10,9,7,.94));transform:translateY(-4px)}
-  .sigil{font-size:34px;color:var(--gold);margin-bottom:18px;line-height:1}
-  .feature h2{font-size:clamp(18px,2vw,24px);font-weight:400;letter-spacing:.16em;margin:0 0 10px}
-  .feature p{font:12px/1.8 sans-serif;letter-spacing:.18em;color:#9c8b70;margin:0}
-  .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;
-    align-items:center;justify-content:center;padding:22px;z-index:10}
-  .modal-backdrop.open{display:flex}
-  .modal{width:min(680px,100%);min-height:260px;position:relative;padding:54px 34px 38px;
-    background:linear-gradient(145deg,#211a12,#0b0907 72%);border:1px solid var(--gold-soft);
-    box-shadow:0 18px 80px rgba(0,0,0,.7);text-align:center}
-  .modal h2{font-weight:400;letter-spacing:.2em;color:var(--gold);margin:0 0 22px}
-  .modal p{color:#c2b49a;line-height:1.9;margin:0}
-  .close{position:absolute;right:16px;top:12px;border:0;background:none;color:#c7b58f;
-    font-size:28px;cursor:pointer}
-  footer{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);width:70%;margin:0 auto 36px}
-  @media(max-width:760px){.features{grid-template-columns:1fr;width:min(520px,calc(100% - 32px));gap:14px}.feature{min-height:170px}}
+:root{
+  color-scheme:dark;
+  --bg:#090806;--panel:#100e0a;--panel2:#17130d;
+  --gold:#c4a36b;--gold2:#8f7044;--pale:#e8dcc5;
+  --muted:#a99a80;--line:rgba(196,163,107,.28);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg);scroll-padding-top:86px}
+body{margin:0;background:var(--bg);color:var(--pale);font-family:var(--serif);min-width:320px}
+a{color:inherit}
+button{font:inherit}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--gold);color:#100d08;padding:10px 16px}
+.skip:focus{left:12px}
+.site-header{
+  position:sticky;top:0;z-index:20;height:68px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:0 clamp(18px,5vw,76px);
+  background:rgba(9,8,6,.91);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(196,163,107,.16)
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;white-space:nowrap}
+.brand-mark{width:30px;height:30px;border:1px solid var(--gold2);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:15px}
+.brand-name{font-size:14px;letter-spacing:.28em;color:var(--pale)}
+.nav{display:flex;align-items:center;gap:clamp(14px,3vw,38px)}
+.nav a{font:11px var(--sans);letter-spacing:.18em;text-decoration:none;color:var(--muted);transition:color .2s}
+.nav a:hover,.nav a:focus-visible{color:var(--gold)}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--gold);padding:8px 11px}
+.hero{width:100%;background:#090806;position:relative;overflow:hidden}
+.hero-inner{max-width:1120px;margin:0 auto;position:relative;line-height:0}
+.hero-art{display:block;width:100%;height:auto}
+.hero-caption{
+  position:absolute;left:50%;bottom:2.3%;transform:translateX(-50%);
+  width:max-content;max-width:90%;text-align:center;line-height:1.8;
+  color:rgba(232,220,197,.72);font:10px var(--sans);letter-spacing:.28em;
+  text-shadow:0 1px 12px #000;pointer-events:none
+}
+/* Transparent door targets align with the three doors in the original artwork. */
+.door-target{position:absolute;top:67.5%;height:12.5%;width:28%;border:1px solid transparent;background:transparent;cursor:pointer;border-radius:4px;transition:background .2s,border-color .2s,box-shadow .2s}
+.door-target:hover,.door-target:focus-visible{background:rgba(196,163,107,.10);border-color:rgba(218,185,126,.72);box-shadow:0 0 28px rgba(196,163,107,.18);outline:none}
+.door-target span{position:absolute;left:50%;bottom:-32px;transform:translateX(-50%);padding:5px 10px;background:rgba(9,8,6,.92);border:1px solid var(--line);color:var(--pale);font:11px var(--sans);letter-spacing:.12em;white-space:nowrap;opacity:0;transition:opacity .2s}
+.door-target:hover span,.door-target:focus-visible span{opacity:1}
+.door-one{left:3%}.door-two{left:36%}.door-three{right:3%}
+.intro{max-width:900px;margin:0 auto;padding:clamp(64px,9vw,112px) 24px 58px;text-align:center}
+.eyebrow{font:10px var(--sans);letter-spacing:.38em;color:var(--gold2);text-transform:uppercase}
+.intro h1{font-size:clamp(24px,4vw,38px);font-weight:400;letter-spacing:.28em;margin:18px 0 20px;color:var(--pale)}
+.intro p{max-width:620px;margin:0 auto;color:var(--muted);font-size:14px;line-height:2.2;letter-spacing:.08em}
+.ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px auto 0;color:var(--gold2)}
+.ornament:before,.ornament:after{content:"";width:54px;height:1px;background:var(--line)}
+.portals{max-width:1160px;margin:0 auto;padding:20px 28px 100px}
+.section-head{text-align:center;margin-bottom:34px}
+.section-head h2{font-size:19px;font-weight:400;letter-spacing:.3em;margin:0 0 12px}
+.section-head p{font:11px/1.8 var(--sans);letter-spacing:.12em;color:var(--muted);margin:0}
+.portal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portal{
+  position:relative;min-height:260px;padding:32px 25px 26px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  border:1px solid var(--line);background:
+  radial-gradient(ellipse at 50% 0%,rgba(129,96,49,.14),transparent 65%),
+  linear-gradient(160deg,rgba(32,25,16,.82),rgba(11,10,8,.98));
+  transition:transform .25s,border-color .25s,background .25s
+}
+.portal:hover{transform:translateY(-5px);border-color:rgba(196,163,107,.7)}
+.portal-symbol{width:54px;height:54px;border:1px solid var(--gold2);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:23px;margin-bottom:20px}
+.portal h3{font-size:18px;font-weight:400;letter-spacing:.2em;margin:0 0 8px}
+.portal .en{font:10px var(--sans);letter-spacing:.2em;color:var(--gold2)}
+.portal p{font-size:13px;line-height:1.9;color:var(--muted);margin:20px 0 24px;min-height:50px}
+.portal button{margin-top:auto;border:1px solid var(--line);background:transparent;color:var(--pale);padding:10px 22px;letter-spacing:.16em;font-size:12px;cursor:pointer;transition:background .2s,border-color .2s}
+.portal button:hover,.portal button:focus-visible{background:rgba(196,163,107,.12);border-color:var(--gold);outline:none}
+.detail{max-width:900px;margin:0 auto 100px;padding:0 24px;scroll-margin-top:88px}
+.detail-panel{border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,24,15,.72),rgba(10,9,7,.96));padding:clamp(28px,5vw,54px);text-align:center}
+.detail-panel[hidden]{display:none}
+.detail-kicker{font:10px var(--sans);letter-spacing:.32em;color:var(--gold2)}
+.detail-panel h2{font-size:clamp(20px,3vw,28px);font-weight:400;letter-spacing:.22em;margin:14px 0}
+.detail-panel p{max-width:620px;margin:0 auto;color:var(--muted);font-size:14px;line-height:2}
+.empty-state{margin:28px auto 0;padding:18px;border-top:1px solid var(--line);max-width:520px;color:#8d806b;font-size:12px;line-height:1.9}
+.close-detail{margin-top:24px;background:transparent;border:0;color:var(--gold);cursor:pointer;letter-spacing:.15em;font-size:12px;padding:8px 14px}
+.footer{border-top:1px solid rgba(196,163,107,.16);padding:28px 20px 34px;text-align:center;color:#766a57;font:10px/2 var(--sans);letter-spacing:.18em}
+.footer .seal{display:block;color:var(--gold2);font:18px var(--serif);margin-bottom:8px}
+@media(max-width:760px){
+  .site-header{height:60px}
+  .menu-toggle{display:block}
+  .nav{display:none;position:absolute;top:59px;left:0;right:0;padding:18px 22px 22px;background:rgba(9,8,6,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}
+  .nav.open{display:flex}
+  .hero-caption{font-size:8px;bottom:1.3%}
+  .door-target{top:67%;height:13%;width:30%}
+  .door-one{left:1%}.door-two{left:35%}.door-three{right:1%}
+  .portal-grid{grid-template-columns:1fr;max-width:520px;margin:auto;gap:14px}
+  .portal{min-height:220px}
+  .portal p{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-  <main>
-    <section class="hero" aria-label="AMO 神諭殿堂首頁主視覺">
-      <img src="https://drive.google.com/thumbnail?id=1t4cxS507buaZdjvEPldY3_Z_eEgBDjXK&sz=w2000"
-           alt="AMO 神諭殿堂主視覺">
-    </section>
+<a class="skip" href="#main">跳至主要內容</a>
+<header class="site-header">
+  <a class="brand" href="#" aria-label="AMO 神諭殿堂首頁">
+    <span class="brand-mark" aria-hidden="true">☽</span><span class="brand-name">AMO 神諭殿堂</span>
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">選單</button>
+  <nav class="nav" id="mainNav" aria-label="主要導覽">
+    <a href="#sanctuary">殿堂</a><a href="#portals">三重秘門</a><a href="#footer">關於 AMO</a>
+  </nav>
+</header>
 
-    <section class="features" aria-label="創作內容">
-      <button class="feature" data-title="貼圖・作品" data-copy="這裡將展示 AMO 的原創貼圖與視覺作品。">
-        <span class="sigil">✧</span><h2>貼圖・作品</h2><p>ORIGINAL WORKS</p>
-      </button>
-      <button class="feature" data-title="影音・YouTube" data-copy="這裡將收錄 AMO 的影片與影音創作。">
-        <span class="sigil">◉</span><h2>影音・YouTube</h2><p>VIDEO ARCHIVE</p>
-      </button>
-      <button class="feature" data-title="音樂・Suno" data-copy="這裡將展示 AMO 的 AI 音樂作品與歌曲。">
-        <span class="sigil">♫</span><h2>音樂・Suno</h2><p>AI MUSIC LAB</p>
-      </button>
-    </section>
-    <footer></footer>
-  </main>
-
-  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal">
-      <button class="close" aria-label="關閉" id="close">×</button>
-      <h2 id="modal-title"></h2><p id="modal-copy"></p>
+<main id="main">
+  <section class="hero" id="sanctuary" aria-label="神諭殿堂主視覺與三座秘門">
+    <div class="hero-inner">
+      <img class="hero-art" src="https://drive.google.com/thumbnail?id=1t4cxS507buaZdjvEPldY3_Z_eEgBDjXK&sz=w2000" alt="暗金神諭殿堂：長髮神祇伸手相邀，殿堂前方設有貼圖作品、影音 YouTube、音樂 Suno 三座秘門" fetchpriority="high">
+      <button class="door-target door-one" type="button" data-open="works" aria-label="開啟貼圖與作品秘門"><span>貼圖・作品</span></button>
+      <button class="door-target door-two" type="button" data-open="video" aria-label="開啟影音與 YouTube 秘門"><span>影音・YouTube</span></button>
+      <button class="door-target door-three" type="button" data-open="music" aria-label="開啟音樂與 Suno 秘門"><span>音樂・Suno</span></button>
+      <div class="hero-caption">ENTER THE SANCTUARY · FOLLOW THE LIGHT</div>
     </div>
-  </div>
+  </section>
+
+  <section class="intro">
+    <div class="eyebrow">A QUIET PLACE FOR CREATION</div>
+    <h1>在此，收藏靈感的回聲</h1>
+    <p>穿過殿門，尋訪影像、聲音與故事留下的痕跡。這裡是 AMO 的創作收藏所，也是每一道靈感得以安放的地方。</p>
+    <div class="ornament" aria-hidden="true">✧</div>
+  </section>
+
+  <section class="portals" id="portals">
+    <div class="section-head">
+      <h2>三重秘門</h2>
+      <p>THREE GATES · THREE FORMS OF CREATION</p>
+    </div>
+    <div class="portal-grid">
+      <article class="portal">
+        <div class="portal-symbol" aria-hidden="true">✧</div>
+        <h3>貼圖・作品</h3><div class="en">ORIGINAL WORKS</div>
+        <p>收藏原創貼圖、角色設計與視覺創作。</p>
+        <button type="button" data-open="works">進入秘門　↗</button>
+      </article>
+      <article class="portal">
+        <div class="portal-symbol" aria-hidden="true">◉</div>
+        <h3>影音・YouTube</h3><div class="en">VIDEO ARCHIVE</div>
+        <p>收錄影像作品、音樂影像與影音企劃。</p>
+        <button type="button" data-open="video">進入秘門　↗</button>
+      </article>
+      <article class="portal">
+        <div class="portal-symbol" aria-hidden="true">♫</div>
+        <h3>音樂・Suno</h3><div class="en">MUSIC SANCTUM</div>
+        <p>整理歌曲、聲音實驗與音樂創作。</p>
+        <button type="button" data-open="music">進入秘門　↗</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="detail" id="detail" aria-live="polite">
+    <div class="detail-panel" id="panel-works" hidden>
+      <div class="detail-kicker">GATE I · ORIGINAL WORKS</div><h2>貼圖・作品</h2>
+      <p>原創貼圖、角色與視覺作品的收藏入口。</p>
+      <div class="empty-state">作品展示入口尚未連結。待加入作品網址後，這裡就能成為正式作品廊。</div>
+      <button class="close-detail" type="button">收起內容　↑</button>
+    </div>
+    <div class="detail-panel" id="panel-video" hidden>
+      <div class="detail-kicker">GATE II · VIDEO ARCHIVE</div><h2>影音・YouTube</h2>
+      <p>音樂影像、短片與影音企劃的收藏入口。</p>
+      <div class="empty-state">YouTube 頻道或播放清單尚未連結。加入正式網址後即可由此進入。</div>
+      <button class="close-detail" type="button">收起內容　↑</button>
+    </div>
+    <div class="detail-panel" id="panel-music" hidden>
+      <div class="detail-kicker">GATE III · MUSIC SANCTUM</div><h2>音樂・Suno</h2>
+      <p>歌曲、歌詞與聲音創作的收藏入口。</p>
+      <div class="empty-state">Suno 個人頁或作品連結尚未設定。此處保留正式入口，不放虛構連結。</div>
+      <button class="close-detail" type="button">收起內容　↑</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="footer">
+  <span class="seal">☽</span>
+  AMO ORACLE SANCTUARY<br>
+  A PERSONAL ARCHIVE OF ART, VIDEO & MUSIC
+</footer>
+
 <script>
-  const modal=document.getElementById('modal');
-  const title=document.getElementById('modal-title');
-  const copy=document.getElementById('modal-copy');
-  document.querySelectorAll('.feature').forEach(button=>{
-    button.addEventListener('click',()=>{
-      title.textContent=button.dataset.title;
-      copy.textContent=button.dataset.copy;
-      modal.classList.add('open');
+(() => {
+  const panels = [...document.querySelectorAll('.detail-panel')];
+  const detail = document.getElementById('detail');
+  const menu = document.getElementById('mainNav');
+  const menuToggle = document.getElementById('menuToggle');
+
+  function openPanel(key) {
+    const target = document.getElementById('panel-' + key);
+    if (!target) return;
+    panels.forEach(panel => { panel.hidden = panel !== target; });
+    detail.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+  }
+  document.querySelectorAll('[data-open]').forEach(button => {
+    button.addEventListener('click', () => openPanel(button.dataset.open));
+  });
+  document.querySelectorAll('.close-detail').forEach(button => {
+    button.addEventListener('click', () => {
+      panels.forEach(panel => { panel.hidden = true; });
     });
   });
-  document.getElementById('close').addEventListener('click',()=>modal.classList.remove('open'));
-  modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+})();
 </script>
 </body>
 </html>
