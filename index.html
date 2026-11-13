@@ -262,7 +262,61 @@ body{
   .portal{min-height:220px}
 }
 
-</style>
+
+/* THREE GATES — architectural portal frames inspired by the reference image */
+.portal-grid{gap:clamp(22px,3vw,40px);align-items:stretch}
+.portal{
+  min-height:390px;
+  padding:72px 24px 34px;
+  border:1px solid rgba(199,181,143,.34);
+  border-radius:48% 48% 3px 3px / 22% 22% 3px 3px;
+  overflow:visible;
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 50% 10%,rgba(211,190,145,.16),transparent 43%),
+    linear-gradient(180deg,rgba(19,29,43,.88),rgba(7,13,24,.97));
+  box-shadow:inset 0 0 34px rgba(0,0,0,.42),0 18px 48px rgba(0,0,0,.22);
+}
+.portal::before{
+  content:"";position:absolute;z-index:-1;inset:12px 12px 12px;
+  border:1px solid rgba(211,190,145,.22);
+  border-bottom-color:rgba(211,190,145,.12);
+  border-radius:48% 48% 1px 1px / 21% 21% 1px 1px;
+  background:
+    linear-gradient(90deg,transparent 0,rgba(211,190,145,.07) 50%,transparent 100%);
+  box-shadow:inset 0 0 26px rgba(211,190,145,.035);
+  pointer-events:none;transition:border-color .55s ease,box-shadow .55s ease;
+}
+.portal::after{
+  content:"✧";position:absolute;top:17px;left:50%;transform:translateX(-50%);
+  width:42px;height:42px;display:grid;place-items:center;
+  border:1px solid rgba(211,190,145,.5);border-radius:50%;
+  color:#e5d4ad;font-size:18px;text-shadow:0 0 12px rgba(211,190,145,.55);
+  background:radial-gradient(circle,rgba(211,190,145,.15),rgba(7,13,24,.9) 70%);
+  box-shadow:0 0 18px rgba(211,190,145,.12),inset 0 0 12px rgba(211,190,145,.1);
+  pointer-events:none;
+}
+.portal:hover{
+  transform:translateY(-4px);
+  border-color:rgba(232,211,165,.72);
+  box-shadow:inset 0 0 40px rgba(211,190,145,.06),0 20px 54px rgba(0,0,0,.34),0 0 28px rgba(211,190,145,.09);
+}
+.portal:hover::before{border-color:rgba(232,211,165,.48);box-shadow:inset 0 0 30px rgba(211,190,145,.08),0 0 20px rgba(211,190,145,.08)}
+.portal-symbol{
+  width:78px;height:78px;margin:12px 0 24px;
+  border-color:rgba(211,190,145,.55);
+  background:radial-gradient(circle,rgba(211,190,145,.14),rgba(7,13,24,.65) 68%);
+  font-size:29px;
+}
+.portal h3{font-size:19px;letter-spacing:.24em}
+.portal .en{letter-spacing:.24em}
+.portal p{max-width:230px;min-height:56px;margin:22px 0 25px}
+.portal button{letter-spacing:.22em}
+@media(max-width:760px){
+  .portal-grid{max-width:460px}
+  .portal{min-height:340px;padding-top:68px}
+}
+\n</style>
 </head>
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
