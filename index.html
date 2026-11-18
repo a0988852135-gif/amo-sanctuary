@@ -343,7 +343,10 @@ body{
 .door-target:hover,.door-target:focus-visible{
   filter:drop-shadow(0 0 13px rgba(226,208,168,.48));
 }
-.door-target:hover::before,.door-target:focus-visible::before{
+.door-target:hover::before{
+  opacity:0;border-color:transparent;box-shadow:none;
+}
+.door-target:focus-visible::before{
   opacity:1;border-color:rgba(232,218,184,.78);
   box-shadow:0 0 24px rgba(211,194,154,.32),inset 0 0 22px rgba(211,194,154,.18);
 }
