@@ -316,7 +316,60 @@ body{
   .portal-grid{max-width:460px}
   .portal{min-height:340px;padding-top:68px}
 }
-\n</style>
+\n
+/* Scene hotspots: left torch → wishes, center astrolabe → revelation, right bell → bathing. */
+.hero-inner{max-width:none;width:100%}
+.hero-art{width:100%;height:auto}
+.door-target{
+  z-index:3;top:auto;height:auto;width:auto;
+  border:0!important;border-radius:50%;background:transparent!important;
+  box-shadow:none!important;outline:none;overflow:visible;
+}
+.door-one{left:1.5%;top:29%;width:12%;height:24%}
+.door-two{left:39%;top:39%;width:22%;height:23%}
+.door-three{left:76%;right:auto;top:17%;width:10%;height:27%}
+.door-target::before{
+  content:"";position:absolute;inset:18%;border:1px solid rgba(222,204,164,.12);
+  border-radius:50%;opacity:.48;pointer-events:none;
+  box-shadow:0 0 14px rgba(204,191,158,.10),inset 0 0 14px rgba(204,191,158,.06);
+  animation:portal-breath 4.8s ease-in-out infinite;
+}
+.door-one::before{inset:25% 30%;animation:flame-glow 3.2s ease-in-out infinite}
+.door-three::before{inset:19% 28%;animation:bell-sway 4.2s ease-in-out infinite}
+.door-target::after{
+  content:"";position:absolute;inset:5%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse,rgba(210,190,147,.13),transparent 68%);
+  opacity:.28;animation:portal-glimmer 3.6s ease-in-out infinite;
+}
+.door-target:hover,.door-target:focus-visible{
+  filter:drop-shadow(0 0 13px rgba(226,208,168,.48));
+}
+.door-target:hover::before,.door-target:focus-visible::before{
+  opacity:1;border-color:rgba(232,218,184,.78);
+  box-shadow:0 0 24px rgba(211,194,154,.32),inset 0 0 22px rgba(211,194,154,.18);
+}
+.door-target span{
+  left:50%;bottom:-28px;transform:translateX(-50%);
+  opacity:0;background:rgba(6,12,22,.9);padding:6px 10px;
+  border:1px solid rgba(211,190,145,.36);border-radius:2px;
+  font-size:11px;letter-spacing:.12em;pointer-events:none;
+}
+.door-target:hover span,.door-target:focus-visible span{opacity:1}
+@keyframes portal-breath{0%,100%{opacity:.28;transform:scale(.95)}50%{opacity:.62;transform:scale(1.04)}}
+@keyframes flame-glow{0%,100%{opacity:.25;transform:scale(.94)}50%{opacity:.72;transform:scale(1.07)}}
+@keyframes bell-sway{0%,100%{opacity:.32;transform:rotate(-1deg)}50%{opacity:.72;transform:rotate(1deg)}}
+@keyframes portal-glimmer{0%,100%{opacity:.12}50%{opacity:.4}}
+@media(max-width:760px){
+  .door-one{left:1%;top:29%;width:13%;height:24%}
+  .door-two{left:37%;top:39%;width:26%;height:24%}
+  .door-three{left:75%;top:17%;width:12%;height:27%}
+  .door-target span{font-size:10px;bottom:-24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .door-target::before,.door-target::after{animation:none}
+}
+
+</style>
 </head>
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
@@ -333,11 +386,10 @@ body{
 <main id="main">
   <section class="hero" id="sanctuary" aria-label="神諭殿堂中堂與三個隱藏機關">
     <div class="hero-inner">
-      <img class="hero-art" src="https://drive.google.com/thumbnail?id=1t4cxS507buaZdjvEPldY3_Z_eEgBDjXK&sz=w2000" alt="AMO 神諭殿堂中堂場景" fetchpriority="high">
-      <button class="door-target door-one" type="button" data-href="bathing/" aria-label="開啟沐浴神殿"><span>貼圖・作品</span></button>
-      <button class="door-target door-two" type="button" data-href="revelation/" aria-label="開啟主神揭幕儀式"><span>影音・YouTube</span></button>
-      <button class="door-target door-three" type="button" data-href="wishes/" aria-label="開啟萬願祈殿"><span>音樂・Suno</span></button>
-      <div class="hero-caption">ENTER THE SANCTUARY · FOLLOW THE LIGHT</div>
+      <img class="hero-art" src="https://drive.google.com/thumbnail?id=1e4OgEQpiqC-C-TmCQOMcYxpp7tLjwoUR&sz=w2000" alt="AMO 神諭殿堂中堂場景" fetchpriority="high">
+      <button class="door-target door-one" type="button" data-href="wishes/" aria-label="火把：開啟萬願祈殿"><span>萬願祈殿</span></button>
+      <button class="door-target door-two" type="button" data-href="revelation/" aria-label="星盤：開啟主神揭幕儀式"><span>主神揭幕儀式</span></button>
+      <button class="door-target door-three" type="button" data-href="bathing/" aria-label="古鐘：開啟沐浴神殿"><span>沐浴神殿</span></button>
     </div>
   </section>
 
