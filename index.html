@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090806">
 <meta name="description" content="AMO 神諭殿堂｜收藏原創作品、影音與音樂的靜謐之所。">
-<title>AMO｜神諭殿堂</title>
+<title>月照眾生，財歸神殿｜AMO 神諭殿堂</title>
 <style>
 :root{
   color-scheme:dark;
@@ -417,8 +417,10 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
 
 /* Let the sky show through the navigation and brighten the delicate gold wordmarks. */
 .site-header{height:76px;background:rgba(7,18,36,.06);backdrop-filter:none;border-bottom-color:rgba(213,189,138,.14)}
-.nav-wordmark{width:clamp(80px,9.5vw,130px);max-height:44px;filter:brightness(1.28) drop-shadow(0 0 5px rgba(231,205,151,.48)) drop-shadow(0 0 13px rgba(213,189,138,.18))}
-.brand-mark-image{filter:brightness(1.2) drop-shadow(0 0 7px rgba(231,205,151,.42))}
+.brand{gap:10px;min-width:0;text-decoration:none}
+.brand-moon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border:1px solid rgba(213,189,138,.58);border-radius:50%;color:#ead7a9;font:23px/1 Georgia,serif;text-shadow:0 0 9px rgba(231,205,151,.65);box-shadow:inset 0 0 12px rgba(213,189,138,.08),0 0 12px rgba(213,189,138,.13)}
+.brand-name{display:block;color:#e7d6aa;font:12px var(--serif);letter-spacing:.11em;white-space:nowrap;text-shadow:0 0 8px rgba(231,205,151,.42),0 1px 5px rgba(0,0,0,.75)}
+.nav-wordmark{width:clamp(80px,9.5vw,130px);max-height:44px;filter:brightness(1.28) drop-shadow(.45px 0 rgba(231,205,151,.82)) drop-shadow(-.45px 0 rgba(231,205,151,.82)) drop-shadow(0 .45px rgba(231,205,151,.7)) drop-shadow(0 -.45px rgba(231,205,151,.7)) drop-shadow(0 0 5px rgba(231,205,151,.48)) drop-shadow(0 0 13px rgba(213,189,138,.18))}
 .nav a.image-link:hover,.nav a.image-link:focus-visible{filter:brightness(1.34) drop-shadow(0 0 9px rgba(241,219,168,.78)) drop-shadow(0 0 18px rgba(226,197,137,.34))}
 
 /* Feather the sanctuary artwork into the same nebula instead of leaving hard image edges. */
@@ -434,8 +436,9 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
 <header class="site-header">
-  <a class="brand" href="#sanctuary" aria-label="AMO 神諭殿堂首頁">
-    <img class="brand-mark-image" src="assets/catalog/amo-mark.png" alt="AMO">
+  <a class="brand" href="#sanctuary" aria-label="月照眾生，財歸神殿｜AMO 神諭殿堂首頁">
+    <span class="brand-moon" aria-hidden="true">☾</span>
+    <span class="brand-name">月照眾生，財歸神殿</span>
   </a>
   <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">選單</button>
   <nav class="nav" id="mainNav" aria-label="主要導覽">
