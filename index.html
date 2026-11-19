@@ -343,12 +343,12 @@ body{
   box-shadow:0 0 14px rgba(204,191,158,.10),inset 0 0 14px rgba(204,191,158,.06);
   animation:portal-breath 4.8s ease-in-out infinite;
 }
-.door-one::before{inset:25% 30%;animation:flame-glow 3.2s ease-in-out infinite}
-.door-three::before{inset:19% 28%;animation:bell-sway 4.2s ease-in-out infinite}
+.door-one::before{inset:25% 30%;animation:flame-glow 5.8s ease-in-out infinite}
+.door-three::before{inset:19% 28%;animation:bell-sway 6.4s ease-in-out infinite}
 .door-target::after{
   content:"";position:absolute;inset:5%;border-radius:50%;pointer-events:none;
   background:radial-gradient(ellipse,rgba(210,190,147,.13),transparent 68%);
-  opacity:.28;animation:portal-glimmer 3.6s ease-in-out infinite;
+  opacity:.24;animation:portal-glimmer 5.6s ease-in-out infinite;
 }
 .door-target:hover,.door-target:focus-visible{
   filter:drop-shadow(0 0 13px rgba(226,208,168,.48));
@@ -368,9 +368,9 @@ body{
 }
 .door-target:hover span,.door-target:focus-visible span{opacity:1}
 @keyframes portal-breath{0%,100%{opacity:.28;transform:scale(.95)}50%{opacity:.62;transform:scale(1.04)}}
-@keyframes flame-glow{0%,100%{opacity:.25;transform:scale(.94)}50%{opacity:.72;transform:scale(1.07)}}
-@keyframes bell-sway{0%,100%{opacity:.32;transform:rotate(-1deg)}50%{opacity:.72;transform:rotate(1deg)}}
-@keyframes portal-glimmer{0%,100%{opacity:.12}50%{opacity:.4}}
+@keyframes flame-glow{0%,100%{opacity:.22;transform:scale(.96)}50%{opacity:.55;transform:scale(1.04)}}
+@keyframes bell-sway{0%,100%{opacity:.24;transform:rotate(-.5deg)}50%{opacity:.56;transform:rotate(.5deg)}}
+@keyframes portal-glimmer{0%,100%{opacity:.10}50%{opacity:.30}}
 @media(max-width:760px){
   .door-one{left:1%;top:29%;width:13%;height:24%}
   .door-two{left:37%;top:39%;width:26%;height:24%}
