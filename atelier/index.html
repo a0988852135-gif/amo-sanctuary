@@ -27,6 +27,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .animal-welcome{width:min(790px,94vw);margin:0 auto 18px;text-align:center;color:#eadab8;font:13px/1.8 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.08em;text-shadow:0 1px 10px #020817}
 .animal-welcome-art{display:block;width:min(790px,94vw);height:auto;margin:0 auto 18px;filter:drop-shadow(0 0 8px var(--animal-soft))}
 .section-art{display:block;width:min(560px,72vw);height:auto;margin:14px auto 22px;filter:drop-shadow(0 0 9px rgba(213,189,138,.28))}
+.order-title-art{display:block;width:min(760px,86vw);height:auto;object-fit:contain;margin:14px auto 22px;filter:drop-shadow(0 0 10px rgba(213,189,138,.34))}
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,40px);align-items:start}
 .product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:0 0 15px;background:transparent}
 .product-media{position:relative;overflow:hidden;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.26))}
@@ -119,7 +120,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
     </article>
   </section>
   <section class="order-area" id="order">
-    <img src="../assets/art/order-title.svg?v=20261119" alt="月下訂製・訂單心願">
+    <img class="order-title-art" src="../assets/catalog/title-order.png?v=20261119" alt="月下訂製・訂單心願">
     <img class="order-intro-art" src="../assets/art/order-intro.svg?v=20261119" alt="留下你的訂製方向，神殿將為你整理一份專屬提案。展示用模擬訂單不會傳送或保存所填資料。">
     <form class="order-form" id="orderForm">
       <div class="field"><label for="customerName">訂購人姓名</label><input id="customerName" name="customerName" autocomplete="name" required placeholder="請輸入姓名"></div>
