@@ -7,7 +7,7 @@
 <title>星月製造｜月照財來</title>
 <link rel="stylesheet" href="../sanctuary.css">
 <style>
-:root{--animal:#dfad61;--animal-soft:rgba(223,173,97,.2);--tint:0deg}
+:root{--animal:#8f81a7;--animal-soft:rgba(143,129,167,.2)}
 body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 48%,rgba(4,12,26,.34))}
 .site-header{position:relative}
 .atelier-main{width:min(1260px,calc(100% - 34px));margin:0 auto 60px}
@@ -18,21 +18,22 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .animal-intro{margin:0 auto 18px;width:min(820px,92vw)}
 .animal-intro img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 8px var(--animal-soft))}
 .animal-rail{display:flex;gap:clamp(8px,1.4vw,18px);align-items:flex-start;justify-content:center;flex-wrap:wrap;margin:8px auto 26px;padding:4px 0}
-.animal-tab{--animal:#d8c190;position:relative;display:grid;justify-items:center;width:clamp(64px,8vw,90px);padding:0 2px 6px;border:0;background:none;color:#f0e4c8;cursor:pointer;transition:transform .3s ease,filter .3s ease}
-.animal-tab img{display:block;width:100%;height:auto;filter:drop-shadow(0 5px 11px rgba(0,0,0,.48));transition:filter .3s ease}
-.animal-tab span{font:10px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-shadow:0 1px 8px #020817}
-.animal-tab:hover,.animal-tab:focus-visible,.animal-tab[aria-pressed="true"]{transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 0 10px var(--animal))}
-.animal-tab:focus-visible{outline:1px solid var(--animal);outline-offset:4px;border-radius:3px}
-.animal-tab[aria-pressed="true"]::after{content:"";position:absolute;bottom:0;width:24px;height:1px;background:var(--animal);box-shadow:0 0 10px var(--animal)}
+.animal-tab{--bookmark-color:#8f81a7;position:relative;display:grid;justify-items:center;width:clamp(64px,8vw,90px);padding:0 2px 6px;border:0;background:none;color:var(--bookmark-color);cursor:pointer;transition:transform .3s ease,filter .3s ease}
+.animal-tab[data-animal="cat"]{--bookmark-color:#8f81a7}.animal-tab[data-animal="fox"]{--bookmark-color:#a67c57}.animal-tab[data-animal="wolf"]{--bookmark-color:#788fa2}.animal-tab[data-animal="rabbit"]{--bookmark-color:#b18b92}.animal-tab[data-animal="deer"]{--bookmark-color:#78896d}.animal-tab[data-animal="bear"]{--bookmark-color:#8a705c}.animal-tab[data-animal="raven"]{--bookmark-color:#6f7691}.animal-tab[data-animal="dragon"]{--bookmark-color:#9d6e68}
+.animal-tab img{display:block;width:100%;height:auto;filter:saturate(.76) drop-shadow(0 5px 11px rgba(0,0,0,.38));-webkit-mask-image:radial-gradient(ellipse 86% 92% at center,#000 58%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.48) 90%,transparent 100%);mask-image:radial-gradient(ellipse 86% 92% at center,#000 58%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.48) 90%,transparent 100%);transition:filter .3s ease}
+.animal-tab span{color:var(--bookmark-color);font:10px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-shadow:0 1px 8px #020817}
+.animal-tab:hover,.animal-tab:focus-visible,.animal-tab[aria-pressed="true"]{transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 0 8px var(--bookmark-color))}
+.animal-tab:focus-visible{outline:1px solid var(--bookmark-color);outline-offset:4px;border-radius:3px}
+.animal-tab[aria-pressed="true"]::after{content:"";position:absolute;bottom:0;width:24px;height:1px;background:var(--bookmark-color);box-shadow:0 0 8px var(--bookmark-color)}
 .animal-welcome{width:min(790px,94vw);margin:0 auto 18px;text-align:center;color:#eadab8;font:13px/1.8 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.08em;text-shadow:0 1px 10px #020817}
 .animal-welcome-art{display:block;width:min(790px,94vw);height:auto;margin:0 auto 18px;filter:drop-shadow(0 0 8px var(--animal-soft))}
 .section-art{display:block;width:min(560px,72vw);height:auto;margin:14px auto 22px;filter:drop-shadow(0 0 9px rgba(213,189,138,.28))}
 .order-title-art{display:block;width:min(760px,86vw);height:auto;object-fit:contain;margin:14px auto 22px;filter:drop-shadow(0 0 10px rgba(213,189,138,.34))}
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,40px);align-items:start}
 .product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:0 0 15px;background:transparent}
-.product-media{position:relative;overflow:hidden;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.26))}
-.product-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 78% 77% at center,transparent 55%,rgba(7,21,42,.12) 74%,rgba(7,21,42,.62) 100%);mix-blend-mode:multiply}
-.product-media img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;transition:filter .6s ease,transform .65s ease;filter:saturate(.96) hue-rotate(var(--tint))}
+.product-media{position:relative;overflow:visible;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
+.product-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 74% 76% at center,transparent 48%,rgba(7,21,42,.18) 69%,rgba(7,21,42,.58) 100%);-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mix-blend-mode:multiply}
+.product-media img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;transition:transform .65s ease;-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%)}
 .product:hover .product-media img{transform:scale(1.018)}
 .product h3{margin:7px 0 4px;color:#f0dfb6;font:400 clamp(17px,2.1vw,23px)/1.5 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.12em;text-shadow:0 1px 12px #020817}
 .product p{max-width:490px;margin:4px auto 0;color:rgba(239,229,207,.9);font:13px/1.9 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.06em;text-shadow:0 1px 10px #020817}
@@ -146,11 +147,11 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 </main>
 <script>
 (()=>{
- const animals={cat:['#c7b3ec','295deg','銀紫月色・金屬細節'],fox:['#efa84d','0deg','琥珀橘光・暖金木紋'],wolf:['#83b7e6','185deg','霜藍星霧・銀色金屬'],rabbit:['#eca9bc','325deg','柔霧粉晶・細緻緞光'],deer:['#99b88a','95deg','森林綠意・天然木紋'],bear:['#c99569','25deg','暮棕琥珀・深色木作'],raven:['#a9a0f0','230deg','星夜靛紫・冷銀金屬'],dragon:['#ec8064','345deg','曜焰赤金・琥珀光澤']};
+ const animals={cat:['#8f81a7','月霧薰紫・冷銀細節'],fox:['#a67c57','柔霧琥珀・暖金木紋'],wolf:['#788fa2','霜藍灰銀・冷調金屬'],rabbit:['#b18b92','灰粉月晶・柔霧緞光'],deer:['#78896d','霧杉鼠尾草綠・天然木紋'],bear:['#8a705c','煙棕古銅・深色木作'],raven:['#6f7691','暮靛灰紫・冷銀金屬'],dragon:['#9d6e68','灰陶赤銅・柔和琥珀光']};
  const names={cat:'月弦貓',fox:'琥珀狐',wolf:'霜狼',rabbit:'月桂兔',deer:'森語鹿',bear:'暮棕熊',raven:'星夜鴉',dragon:'曜焰龍'};
  const welcome=document.getElementById('animalWelcome');
  document.querySelectorAll('.animal-tab').forEach(tab=>tab.addEventListener('click',()=>{
-   const key=tab.dataset.animal,[accent,hue,desc]=animals[key];document.documentElement.style.setProperty('--animal',accent);document.documentElement.style.setProperty('--animal-soft',accent+'44');document.documentElement.style.setProperty('--tint',hue);
+   const key=tab.dataset.animal,[accent,desc]=animals[key];document.documentElement.style.setProperty('--animal',accent);document.documentElement.style.setProperty('--animal-soft',accent+'44');
    document.querySelectorAll('.animal-tab').forEach(other=>other.setAttribute('aria-pressed',String(other===tab)));
    const line=`目前的守護圖騰：${names[key]}｜${desc}`;welcome.alt=line;welcome.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 100"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#a98b52"/><stop offset=".5" stop-color="#f0dfa9"/><stop offset="1" stop-color="#b9985b"/></linearGradient></defs><path d="M90 52h150m720 0h150" stroke="${accent}" fill="none" opacity=".75"/><text x="550" y="64" text-anchor="middle" fill="url(#g)" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="31" letter-spacing="4">${line}</text></svg>`);document.getElementById('animalChoice').value=names[key];
  }));

@@ -26,7 +26,7 @@ main{width:min(var(--page-width),calc(100% - 36px));margin:0 auto 9vh;text-align
 .eyebrow{letter-spacing:.3em;color:var(--gold);font:11px system-ui;padding-top:4vh}
 .intro-copy{max-width:720px;margin:24px auto 34px;color:#e8dcc5;-webkit-text-stroke:.22px rgba(213,189,138,.72);font-weight:300;font-size:14px;line-height:2.15;letter-spacing:.11em;text-shadow:0 0 8px rgba(213,189,138,.16),0 2px 12px rgba(0,0,0,.9)}
 .page-art{width:100%;margin:0 auto 24px;border-block:1px solid rgba(213,189,138,.26);background:transparent}
-.full-scene{display:block;width:100%;height:auto;max-width:var(--page-width);margin:0 auto;object-fit:contain;-webkit-mask-image:radial-gradient(ellipse 78% 84% at center,#000 66%,rgba(0,0,0,.88) 76%,transparent 100%);mask-image:radial-gradient(ellipse 78% 84% at center,#000 66%,rgba(0,0,0,.88) 76%,transparent 100%)}
+.full-scene{display:block;width:100%;height:auto;max-width:var(--page-width);margin:0 auto;object-fit:contain;-webkit-mask-image:radial-gradient(ellipse 86% 86% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.68) 79%,transparent 100%);mask-image:radial-gradient(ellipse 86% 86% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.68) 79%,transparent 100%)}
 .humor-line{margin:22px auto 10px;color:#e3ce9f;-webkit-text-stroke:.18px rgba(213,189,138,.68);font-weight:300;font-size:14px;letter-spacing:.15em;text-shadow:0 0 8px rgba(213,189,138,.2),0 2px 12px rgba(0,0,0,.92)}
 .back{display:inline-flex;align-items:center;justify-content:center;margin:24px auto;padding:10px 14px;transition:transform .32s ease,filter .32s ease}
 .footer{width:min(var(--page-width),calc(100% - 36px));margin:40px auto 0;padding:22px 12px 28px;text-align:center;border-top:1px solid rgba(213,189,138,.22);color:rgba(238,231,215,.66);font:10px system-ui;letter-spacing:.18em}
@@ -55,8 +55,8 @@ main{width:min(var(--page-width),calc(100% - 36px));margin:0 auto 9vh;text-align
 /* Shared transparent art typography and feathered sanctuary scenes. */
 .page-art{border:0}
 .full-scene{
-  -webkit-mask-image:radial-gradient(ellipse 84% 82% at center,#000 58%,rgba(0,0,0,.9) 70%,rgba(0,0,0,.52) 83%,transparent 100%);
-  mask-image:radial-gradient(ellipse 84% 82% at center,#000 58%,rgba(0,0,0,.9) 70%,rgba(0,0,0,.52) 83%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 86% 86% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.68) 79%,transparent 100%);
+  mask-image:radial-gradient(ellipse 86% 86% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.68) 79%,transparent 100%);
 }
 .art-title,.art-copy{display:block;height:auto;object-fit:contain;margin-inline:auto;filter:drop-shadow(0 0 8px rgba(213,189,138,.22))}
 .art-title{width:min(760px,82vw);max-height:210px;margin-top:20px;margin-bottom:16px}
