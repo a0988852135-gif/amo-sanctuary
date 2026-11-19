@@ -381,17 +381,55 @@ body{
   .door-target::before,.door-target::after{animation:none}
 }
 
+/* A single fixed midnight-blue sky keeps every section connected without tiled seams. */
+:root{--bg:#07152a;--panel:rgba(7,18,36,.18);--gold:#d5bd8a;--gold2:#a98e5d;--pale:#eee7d7;--muted:#c4bdaf;--line:rgba(213,189,138,.28)}
+html,body{background:#07152a}
+body{position:relative;isolation:isolate}
+body::before,body::after{content:"";position:fixed;inset:0;pointer-events:none}
+body::before{z-index:-2;background:url("assets/catalog/meteor-nebula.gif") center center/cover no-repeat}
+body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(4,12,26,.34) 58%,rgba(4,12,26,.48))}
+.site-header{background:rgba(7,18,36,.24);backdrop-filter:blur(3px);border-bottom-color:rgba(213,189,138,.22)}
+.brand-mark-image{display:block;width:76px;height:auto;filter:drop-shadow(0 0 7px rgba(213,189,138,.26))}
+.nav a.image-link{display:inline-flex;align-items:center;justify-content:center;transition:transform .32s ease,filter .32s ease}
+.nav a.image-link:hover,.nav a.image-link:focus-visible{transform:scale(1.08);filter:drop-shadow(0 0 8px rgba(226,197,137,.78)) drop-shadow(0 0 16px rgba(226,197,137,.28));outline:none}
+.nav-wordmark{display:block;width:clamp(74px,9vw,122px);max-height:38px;object-fit:contain}
+.hero{background:transparent}
+.door-target{display:block}
+.door-target span{padding:0;background:transparent;border:0}
+.door-target:hover span,.door-target:focus-visible span{transform:translateX(-50%) scale(1.06);filter:drop-shadow(0 0 10px rgba(226,197,137,.8))}
+.door-wordmark{display:block;width:clamp(112px,17vw,200px);height:auto;max-height:76px;object-fit:contain}
+.intro h1,.section-head h2{color:var(--pale);text-shadow:0 2px 14px rgba(0,0,0,.78)}
+.intro-title{display:block;width:min(760px,82vw);height:auto;max-height:220px;object-fit:contain;margin:18px auto 22px;filter:drop-shadow(0 0 8px rgba(213,189,138,.2))}
+.intro p,.atelier-entry p,.section-head p{color:rgba(238,231,215,.88);text-shadow:0 2px 14px rgba(0,0,0,.9)}
+.atelier-entry-card{border:0;background:transparent;box-shadow:none}
+.atelier-title-link{display:inline-flex;align-items:center;justify-content:center;margin:2px auto 14px;transition:transform .32s ease,filter .32s ease}
+.atelier-title-link img{display:block;width:min(620px,76vw);height:auto}
+.atelier-title-link:hover,.atelier-title-link:focus-visible{transform:scale(1.035);filter:drop-shadow(0 0 12px rgba(226,197,137,.72));outline:none}
+.humor-line{margin:22px auto 10px;color:var(--gold);font-size:13px;letter-spacing:.12em;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.footer{position:relative;background:transparent;color:rgba(238,231,215,.68);border-top-color:rgba(213,189,138,.2)}
+@media(max-width:760px){
+  .site-header{background:rgba(7,18,36,.22)}
+  .brand-mark-image{width:58px}
+  .nav-wordmark{width:clamp(70px,18vw,106px);max-height:34px}
+  .door-wordmark{width:clamp(78px,21vw,126px);max-height:48px}
+}
+@media(prefers-reduced-motion:reduce){body::before{background-image:url("assets/catalog/meteor-nebula-blue.png")}}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
 <header class="site-header">
-  <a class="brand" href="#" aria-label="AMO 神諭殿堂首頁">
-    <span class="brand-mark" aria-hidden="true">☽</span><span class="brand-name">AMO 神諭殿堂</span>
+  <a class="brand" href="#sanctuary" aria-label="AMO 神諭殿堂首頁">
+    <img class="brand-mark-image" src="assets/catalog/amo-mark.png" alt="AMO">
   </a>
   <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">選單</button>
   <nav class="nav" id="mainNav" aria-label="主要導覽">
-    <a href="#sanctuary">中堂</a><a href="#footer">關於 AMO</a>
+    <a class="image-link" href="#sanctuary" aria-label="中堂"><img class="nav-wordmark" src="assets/catalog/amo-mark.png" alt="中堂"></a>
+    <a class="image-link" href="bathing/" aria-label="沐浴神殿"><img class="nav-wordmark" src="assets/catalog/title-bathing.png" alt="沐浴神殿"></a>
+    <a class="image-link" href="revelation/" aria-label="主神揭幕儀式"><img class="nav-wordmark" src="assets/catalog/title-revelation.png" alt="主神揭幕儀式"></a>
+    <a class="image-link" href="wishes/" aria-label="萬願祈殿"><img class="nav-wordmark" src="assets/catalog/title-wishes.png" alt="萬願祈殿"></a>
+    <a class="image-link" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A8%82%E8%A3%BD%E6%89%80" aria-label="星月訂製所"><img class="nav-wordmark" src="assets/catalog/title-atelier.png" alt="星月訂製所"></a>
   </nav>
 </header>
 
@@ -399,15 +437,15 @@ body{
   <section class="hero" id="sanctuary" aria-label="神諭殿堂中堂與三個隱藏機關">
     <div class="hero-inner">
       <img class="hero-art" src="https://drive.google.com/thumbnail?id=1e4OgEQpiqC-C-TmCQOMcYxpp7tLjwoUR&sz=w2000" alt="AMO 神諭殿堂中堂場景" fetchpriority="high">
-      <button class="door-target door-one" type="button" data-href="wishes/" aria-label="火把：開啟萬願祈殿"><span>萬願祈殿</span></button>
-      <button class="door-target door-two" type="button" data-href="revelation/" aria-label="星盤：開啟主神揭幕儀式"><span>主神揭幕儀式</span></button>
-      <button class="door-target door-three" type="button" data-href="bathing/" aria-label="古鐘：開啟沐浴神殿"><span>沐浴神殿</span></button>
+      <a class="door-target door-one" href="wishes/" aria-label="火把：開啟萬願祈殿"><span><img class="door-wordmark" src="assets/catalog/title-wishes.png" alt=""></span></a>
+      <a class="door-target door-two" href="revelation/" aria-label="星盤：開啟主神揭幕儀式"><span><img class="door-wordmark" src="assets/catalog/title-revelation.png" alt=""></span></a>
+      <a class="door-target door-three" href="bathing/" aria-label="古鐘：開啟沐浴神殿"><span><img class="door-wordmark" src="assets/catalog/title-bathing.png" alt=""></span></a>
     </div>
   </section>
 
   <section class="intro">
     <div class="eyebrow">A QUIET PLACE FOR CREATION</div>
-    <h1>在此，收藏靈感的回聲</h1>
+    <img class="intro-title" src="assets/catalog/title-sanctuary.png" alt="在此，收藏靈感的回聲">
     <p>穿過殿門，尋訪影像、聲音與故事留下的痕跡。這裡是 AMO 的創作收藏所，也是每一道靈感得以安放的地方。</p>
     <div class="ornament" aria-hidden="true">✧</div>
   </section>
@@ -415,9 +453,9 @@ body{
   <section class="atelier-entry" aria-labelledby="atelierTitle">
     <div class="atelier-entry-card">
       <span class="eyebrow">LUNAR SANCTUARY · CUSTOM ATELIER</span>
-      <h2 id="atelierTitle">循著月光，打造專屬守護裝備</h2>
+      <a class="atelier-title-link" id="atelierTitle" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A8%82%E8%A3%BD%E6%89%80" aria-label="前往星月訂製所"><img src="assets/catalog/title-atelier.png" alt="星月訂製所"></a>
       <p>選擇你的守護動物與色彩，探索為你和毛孩而設的客製電競與生活珍藏。</p>
-      <a class="atelier-link" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A8%82%E8%A3%BD%E6%89%80" target="_blank" rel="noopener">前往星月訂製所</a>
+      <p class="humor-line">入殿隨願，出殿隨緣——餘額亦然。</p>
     </div>
   </section>
 
@@ -433,9 +471,6 @@ body{
 (() => {
   const menu = document.getElementById('mainNav');
   const menuToggle = document.getElementById('menuToggle');
-  document.querySelectorAll('[data-href]').forEach(control => {
-    control.addEventListener('click', () => window.open(new URL(control.dataset.href, document.baseURI).href, '_blank', 'noopener'));
-  });
   menuToggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     menuToggle.setAttribute('aria-expanded', String(open));
