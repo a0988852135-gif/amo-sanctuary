@@ -57,6 +57,16 @@ button{font:inherit}
 .intro p{max-width:620px;margin:0 auto;color:var(--muted);font-size:14px;line-height:2.2;letter-spacing:.08em}
 .ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px auto 0;color:var(--gold2)}
 .ornament:before,.ornament:after{content:"";width:54px;height:1px;background:var(--line)}
+.atelier-entry{max-width:760px;margin:0 auto clamp(76px,10vw,124px);padding:0 24px;text-align:center}
+.atelier-entry-card{position:relative;overflow:hidden;padding:clamp(28px,5vw,46px) 24px;border:1px solid rgba(196,163,107,.42);background:radial-gradient(ellipse at 50% 0%,rgba(129,96,49,.19),transparent 72%),linear-gradient(155deg,rgba(18,25,39,.96),rgba(8,12,21,.98));box-shadow:0 18px 54px rgba(0,0,0,.28),inset 0 0 32px rgba(196,163,107,.035)}
+.atelier-entry-card:before,.atelier-entry-card:after{content:"✦";position:absolute;top:18px;color:rgba(218,185,126,.72);font-size:12px;text-shadow:0 0 16px rgba(218,185,126,.5)}
+.atelier-entry-card:before{left:22px}.atelier-entry-card:after{right:22px}
+.atelier-entry .eyebrow{display:block}
+.atelier-entry h2{font-size:clamp(19px,3vw,27px);font-weight:400;letter-spacing:.2em;color:var(--pale);margin:13px 0 10px}
+.atelier-entry p{max-width:520px;margin:0 auto 24px;color:var(--muted);font-size:13px;line-height:2;letter-spacing:.06em}
+.atelier-link{display:inline-flex;align-items:center;gap:12px;padding:12px 24px;border:1px solid rgba(218,185,126,.68);background:rgba(196,163,107,.08);color:var(--pale);font-size:12px;letter-spacing:.18em;text-decoration:none;transition:background .2s,border-color .2s,box-shadow .2s,transform .2s}
+.atelier-link:after{content:"↗";font-size:14px;color:var(--gold2)}
+.atelier-link:hover,.atelier-link:focus-visible{background:rgba(196,163,107,.17);border-color:var(--gold2);box-shadow:0 0 24px rgba(196,163,107,.16);transform:translateY(-2px);outline:none}
 .portals{max-width:1160px;margin:0 auto;padding:20px 28px 100px}
 .section-head{text-align:center;margin-bottom:34px}
 .section-head h2{font-size:19px;font-weight:400;letter-spacing:.3em;margin:0 0 12px}
@@ -400,6 +410,15 @@ body{
     <h1>在此，收藏靈感的回聲</h1>
     <p>穿過殿門，尋訪影像、聲音與故事留下的痕跡。這裡是 AMO 的創作收藏所，也是每一道靈感得以安放的地方。</p>
     <div class="ornament" aria-hidden="true">✧</div>
+  </section>
+
+  <section class="atelier-entry" aria-labelledby="atelierTitle">
+    <div class="atelier-entry-card">
+      <span class="eyebrow">LUNAR SANCTUARY · CUSTOM ATELIER</span>
+      <h2 id="atelierTitle">循著月光，打造專屬守護裝備</h2>
+      <p>選擇你的守護動物與色彩，探索為你和毛孩而設的客製電競與生活珍藏。</p>
+      <a class="atelier-link" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A8%82%E8%A3%BD%E6%89%80" target="_blank" rel="noopener">前往星月訂製所</a>
+    </div>
   </section>
 
 </main>
