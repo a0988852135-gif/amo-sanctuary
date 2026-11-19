@@ -403,7 +403,8 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
 .intro p,.atelier-entry p,.section-head p{color:rgba(238,231,215,.88);text-shadow:0 2px 14px rgba(0,0,0,.9)}
 .atelier-entry-card{border:0;background:transparent;box-shadow:none}
 .atelier-title-link{display:inline-flex;align-items:center;justify-content:center;margin:2px auto 14px;transition:transform .32s ease,filter .32s ease}
-.atelier-title-link img{display:block;width:min(620px,76vw);height:auto}
+.atelier-title-crop{display:block;width:min(620px,76vw);aspect-ratio:1200/330;overflow:hidden}
+.atelier-title-crop img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .atelier-title-link:hover,.atelier-title-link:focus-visible{transform:scale(1.035);filter:drop-shadow(0 0 12px rgba(226,197,137,.72));outline:none}
 .humor-line{margin:22px auto 10px;color:var(--gold);font-size:13px;letter-spacing:.12em;text-shadow:0 2px 12px rgba(0,0,0,.9)}
 .footer{position:relative;background:transparent;color:rgba(238,231,215,.68);border-top-color:rgba(213,189,138,.2)}
@@ -425,7 +426,7 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
 .nav-link{display:inline-flex;align-items:center;justify-content:center;color:#e8d4a4!important;font:400 15px/1.3 var(--serif)!important;letter-spacing:.12em!important;white-space:nowrap;text-shadow:.35px 0 rgba(231,205,151,.72),-.35px 0 rgba(231,205,151,.72),0 0 8px rgba(231,205,151,.42),0 1px 5px rgba(0,0,0,.8);transition:transform .3s ease,filter .3s ease,color .3s ease}
 .nav-link:hover,.nav-link:focus-visible{transform:scale(1.06);color:#fff0c8!important;filter:drop-shadow(0 0 8px rgba(231,205,151,.72));outline:none}
 .door-label{color:#ead7a9;font:13px var(--serif);letter-spacing:.14em;text-shadow:0 0 10px rgba(231,205,151,.64),0 2px 8px rgba(0,0,0,.9)}
-.atelier-title-link img{display:block;width:min(650px,78vw);height:auto}
+.atelier-title-link .atelier-title-crop{width:min(650px,78vw)}
 .intro-copy-art,.atelier-copy-art{display:block;width:min(790px,86vw);height:auto;margin:14px auto 0;filter:drop-shadow(0 1px 9px rgba(0,0,0,.5))}
 .atelier-copy-art{width:min(720px,82vw);margin:0 auto}
 .nav a.image-link:hover,.nav a.image-link:focus-visible{filter:brightness(1.34) drop-shadow(0 0 9px rgba(241,219,168,.78)) drop-shadow(0 0 18px rgba(226,197,137,.34))}
@@ -475,7 +476,7 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
 
   <section class="atelier-entry" aria-labelledby="atelierTitle">
     <div class="atelier-entry-card">
-      <a class="atelier-title-link" id="atelierTitle" href="atelier/" aria-label="前往星月製造"><img src="assets/art/title-atelier.svg?v=20261119" alt="星月製造"></a>
+      <a class="atelier-title-link" id="atelierTitle" href="atelier/" aria-label="前往星月製造"><span class="atelier-title-crop"><img src="assets/catalog/title-atelier.png?v=20261119" alt="星月製造"></span></a>
       <img class="atelier-copy-art" src="assets/art/atelier-intro.svg?v=20261119" alt="選擇你的守護動物與色彩，探索為你和毛孩而設的客製電競與生活珍藏。">
     </div>
   </section>
