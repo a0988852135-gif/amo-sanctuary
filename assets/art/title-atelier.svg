@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" role="img" aria-labelledby="title desc">
+<title id="title">星月製造</title><desc id="desc">以月輪、星芒與細金線繪成的星月製造藝術字。</desc>
+<defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#977541"/><stop offset=".28" stop-color="#f1dfa9"/><stop offset=".58" stop-color="#c5a568"/><stop offset="1" stop-color="#f2e3b7"/></linearGradient><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="3.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g fill="none" stroke="url(#gold)" stroke-width="1.2" opacity=".78"><path d="M100 137h174M726 137h174"/><path d="M170 137c27-38 52-38 78 0-26 28-51 28-78 0Z"/><path d="M816 137l12-22 12 22-12 21Z"/><path d="M500 26v25m-12-12h24"/><path d="M315 164q185 25 370 0" stroke-opacity=".45"/></g>
+<text x="500" y="132" text-anchor="middle" fill="url(#gold)" stroke="#f6e8bf" stroke-opacity=".55" stroke-width=".6" paint-order="stroke" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="100" letter-spacing="20" filter="url(#glow)">星月製造</text>
+<circle cx="314" cy="138" r="3" fill="#f3dfa7"/><circle cx="686" cy="138" r="3" fill="#f3dfa7"/></svg>

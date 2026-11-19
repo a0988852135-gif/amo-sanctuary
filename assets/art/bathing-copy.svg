@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 230" role="img" aria-labelledby="t">
+<title id="t">在月光落下的地方洗去旅途疲憊，讓心緒隨水聲安靜。願你帶著清澈心意離開；帳單，神殿替你留在現實裡。</title>
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#b18e4e"/><stop offset=".5" stop-color="#f0dfae"/><stop offset="1" stop-color="#ad8e53"/></linearGradient></defs>
+<g fill="none" stroke="url(#g)" opacity=".7"><path d="M80 42h150m740 0h150"/><path d="M600 20v17m-8-8h16"/><circle cx="250" cy="42" r="3"/><circle cx="950" cy="42" r="3"/></g>
+<text x="600" y="103" text-anchor="middle" fill="url(#g)" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="37" letter-spacing="3">在月光落下的地方洗去旅途疲憊，讓心緒隨水聲安靜。</text>
+<text x="600" y="166" text-anchor="middle" fill="url(#g)" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="34" letter-spacing="3">願你帶著清澈心意離開；帳單，神殿替你留在現實裡。</text>
+</svg>

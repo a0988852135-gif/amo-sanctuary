@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 210" role="img" aria-labelledby="t"><title id="t">在月光下，為你與毛孩訂製相伴的珍藏。挑選守護動物、色彩與材質，讓美感成為日常。</title>
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#a98b52"/><stop offset=".5" stop-color="#f0dfa9"/><stop offset="1" stop-color="#b9985b"/></linearGradient></defs>
+<g fill="none" stroke="url(#g)" opacity=".7"><path d="M95 41h160m690 0h160"/><path d="M600 18v15m-8-8h16"/><circle cx="270" cy="41" r="3"/><circle cx="930" cy="41" r="3"/></g>
+<text x="600" y="91" text-anchor="middle" fill="url(#g)" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="37" letter-spacing="4">在月光下，為你與毛孩訂製相伴的珍藏。</text>
+<text x="600" y="151" text-anchor="middle" fill="url(#g)" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="33" letter-spacing="3">挑選守護動物、色彩與材質，讓美感成為日常。</text>
+</svg>

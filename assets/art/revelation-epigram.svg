@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" role="img" aria-labelledby="t">
+<title id="t">神明隆重登場，荷包敬意退場。</title>
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#a98b52"/><stop offset=".48" stop-color="#f0dfa9"/><stop offset="1" stop-color="#b9985b"/></linearGradient><filter id="glow" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g fill="none" stroke="url(#g)" opacity=".72"><path d="M105 91H250M950 91h145"/><path d="M171 91q26-35 50 0q-24 30-50 0Z"/><path d="M1020 91l8-15 8 15-8 15Z"/></g>
+<text x="600" y="101" text-anchor="middle" fill="url(#g)" stroke="#f1e3bc" stroke-opacity=".48" stroke-width=".55" paint-order="stroke" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="56" letter-spacing="9" filter="url(#glow)">神明隆重登場，荷包敬意退場。</text></svg>

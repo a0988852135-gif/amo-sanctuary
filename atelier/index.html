@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07152a">
+<meta name="description" content="星月製造｜為你與毛孩量身構想的月下訂製珍藏。">
+<title>星月製造｜月照財來</title>
+<link rel="stylesheet" href="../sanctuary.css">
+<style>
+:root{--animal:#dfad61;--animal-soft:rgba(223,173,97,.2);--tint:0deg}
+body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 48%,rgba(4,12,26,.34))}
+.site-header{position:relative}
+.atelier-main{width:min(1260px,calc(100% - 34px));margin:0 auto 60px}
+.atelier-intro{text-align:center;padding:clamp(20px,4vw,42px) 0 10px}
+.atelier-title{display:block;width:min(700px,82vw);height:auto;margin:0 auto 2px;filter:drop-shadow(0 0 11px rgba(213,189,138,.3))}
+.atelier-intro img.copy-art{display:block;width:min(920px,92vw);height:auto;margin:0 auto 6px;filter:drop-shadow(0 1px 8px rgba(0,0,0,.55))}
+.animal-intro{margin:0 auto 18px;width:min(820px,92vw)}
+.animal-intro img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 8px var(--animal-soft))}
+.animal-rail{display:flex;gap:clamp(8px,1.4vw,18px);align-items:flex-start;justify-content:center;flex-wrap:wrap;margin:8px auto 26px;padding:4px 0}
+.animal-tab{--animal:#d8c190;position:relative;display:grid;justify-items:center;width:clamp(64px,8vw,90px);padding:0 2px 6px;border:0;background:none;color:#f0e4c8;cursor:pointer;transition:transform .3s ease,filter .3s ease}
+.animal-tab img{display:block;width:100%;height:auto;filter:drop-shadow(0 5px 11px rgba(0,0,0,.48));transition:filter .3s ease}
+.animal-tab span{font:10px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-shadow:0 1px 8px #020817}
+.animal-tab:hover,.animal-tab:focus-visible,.animal-tab[aria-pressed="true"]{transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 0 10px var(--animal))}
+.animal-tab:focus-visible{outline:1px solid var(--animal);outline-offset:4px;border-radius:3px}
+.animal-tab[aria-pressed="true"]::after{content:"";position:absolute;bottom:0;width:24px;height:1px;background:var(--animal);box-shadow:0 0 10px var(--animal)}
+.animal-welcome{width:min(790px,94vw);margin:0 auto 18px;text-align:center;color:#eadab8;font:13px/1.8 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.08em;text-shadow:0 1px 10px #020817}
+.section-art{display:block;width:min(560px,72vw);height:auto;margin:14px auto 22px;filter:drop-shadow(0 0 9px rgba(213,189,138,.28))}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,40px);align-items:start}
+.product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:0 0 15px;background:transparent}
+.product-media{position:relative;overflow:hidden;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.26))}
+.product-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 78% 77% at center,transparent 55%,rgba(7,21,42,.12) 74%,rgba(7,21,42,.62) 100%);mix-blend-mode:multiply}
+.product-media img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;transition:filter .6s ease,transform .65s ease;filter:saturate(.96) hue-rotate(var(--tint))}
+.product:hover .product-media img{transform:scale(1.018)}
+.product h3{margin:7px 0 4px;color:#f0dfb6;font:400 clamp(17px,2.1vw,23px)/1.5 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.12em;text-shadow:0 1px 12px #020817}
+.product p{max-width:490px;margin:4px auto 0;color:rgba(239,229,207,.9);font:13px/1.9 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.06em;text-shadow:0 1px 10px #020817}
+.product .price{margin-top:6px;color:#ddc99c;font-size:12px;letter-spacing:.1em}
+.product button,.order-submit{margin:12px 0 0;padding:9px 17px;border:1px solid color-mix(in srgb,var(--animal) 68%,transparent);background:rgba(5,14,28,.22);color:#f2e5c7;font:12px "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.12em;cursor:pointer;transition:background .3s,box-shadow .3s,transform .3s}
+.product button:hover,.product button:focus-visible,.order-submit:hover,.order-submit:focus-visible{background:rgba(5,14,28,.46);box-shadow:0 0 19px var(--animal-soft);transform:translateY(-2px);outline:none}
+.order-area{width:min(890px,100%);margin:54px auto 0;padding:14px 10px 28px}
+.order-area>img{display:block;width:min(580px,82vw);height:auto;margin:0 auto 4px;filter:drop-shadow(0 0 9px rgba(213,189,138,.28))}
+.order-intro{margin:0 auto 24px;text-align:center;color:rgba(239,229,207,.9);font:12px/2 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.08em;text-shadow:0 1px 10px #020817}
+.order-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px}
+.field{display:grid;gap:6px;text-align:left}
+.field.wide{grid-column:1/-1}
+.field label,.legend{color:#e8d6ad;font:12px "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.1em;text-shadow:0 1px 8px #020817}
+.field input,.field select,.field textarea{width:100%;min-height:42px;padding:10px 12px;border:1px solid rgba(213,189,138,.35);border-radius:2px;background:rgba(4,13,28,.58);color:#f0e7d5;font:13px system-ui,sans-serif;outline:none}
+.field textarea{min-height:78px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--animal);box-shadow:0 0 12px var(--animal-soft)}
+.field select option{background:#0b1729;color:#f0e7d5}
+.order-form fieldset{grid-column:1/-1;margin:0;padding:0;border:0}
+.address-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
+.form-note{grid-column:1/-1;margin:0;color:rgba(230,221,204,.74);font:11px/1.8 system-ui,sans-serif;letter-spacing:.04em}
+.order-submit{grid-column:1/-1;justify-self:center;padding:11px 30px}
+.confirmation{display:none;margin:22px auto 0;text-align:center;color:#f0dfb6;line-height:1.9;text-shadow:0 1px 10px #020817}
+.confirmation.visible{display:block}
+.confirmation img{display:block;width:min(720px,90vw);height:auto;margin:0 auto 10px}
+.hidden-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.atelier-footer{margin-top:20px;text-align:center;color:rgba(235,223,199,.68);font:10px/1.9 system-ui,sans-serif;letter-spacing:.12em}
+@media(max-width:700px){.atelier-main{width:calc(100% - 22px)}.product-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto;gap:27px}.animal-rail{gap:10px}.animal-tab{width:clamp(58px,17vw,76px)}.order-form{grid-template-columns:1fr}.field.wide,.order-form fieldset,.form-note,.order-submit{grid-column:1}.address-grid{grid-template-columns:1fr}.order-area{margin-top:35px;padding-inline:2px}}
+@media(prefers-reduced-motion:reduce){.product-media img,.animal-tab,.product button,.order-submit{transition:none}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html" aria-label="返回月照財來中堂"><span class="brand-moon" aria-hidden="true">☾</span><span class="brand-name">月照財來</span></a>
+  <nav class="site-nav" aria-label="主要導覽">
+    <a class="nav-link" href="../bathing/">沐浴神殿</a><a class="nav-link" href="../revelation/">月光指引</a><a class="nav-link" href="../wishes/">萬願祈殿</a><a class="nav-link" href="./" aria-current="page">星月製造</a>
+  </nav>
+</header>
+<main class="atelier-main" id="main">
+  <section class="atelier-intro" aria-label="星月製造介紹">
+    <img class="atelier-title" src="../assets/art/title-atelier.svg" alt="星月製造">
+    <img class="copy-art" src="../assets/art/atelier-intro.svg" alt="在月光下，為你與毛孩訂製相伴的珍藏。挑選守護動物、色彩與材質，讓美感成為日常。">
+  </section>
+  <section class="animal-intro" aria-label="挑選守護動物"><img src="../assets/art/choose-animal.svg" alt="選一位守護動物，查看牠的專屬色彩與材質靈感。"></section>
+  <nav class="animal-rail" id="animalRail" aria-label="守護動物">
+    <button class="animal-tab" type="button" data-animal="cat" data-name="月弦貓" aria-pressed="true" aria-label="選擇月弦貓"><img src="../assets/bookmarks/cat.png" alt=""><span>CAT</span></button>
+    <button class="animal-tab" type="button" data-animal="fox" data-name="琥珀狐" aria-pressed="false" aria-label="選擇琥珀狐"><img src="../assets/bookmarks/fox.png" alt=""><span>FOX</span></button>
+    <button class="animal-tab" type="button" data-animal="wolf" data-name="霜狼" aria-pressed="false" aria-label="選擇霜狼"><img src="../assets/bookmarks/wolf.png" alt=""><span>WOLF</span></button>
+    <button class="animal-tab" type="button" data-animal="rabbit" data-name="月桂兔" aria-pressed="false" aria-label="選擇月桂兔"><img src="../assets/bookmarks/rabbit.png" alt=""><span>RABBIT</span></button>
+    <button class="animal-tab" type="button" data-animal="deer" data-name="森語鹿" aria-pressed="false" aria-label="選擇森語鹿"><img src="../assets/bookmarks/deer.png" alt=""><span>DEER</span></button>
+    <button class="animal-tab" type="button" data-animal="bear" data-name="暮棕熊" aria-pressed="false" aria-label="選擇暮棕熊"><img src="../assets/bookmarks/bear.png" alt=""><span>BEAR</span></button>
+    <button class="animal-tab" type="button" data-animal="raven" data-name="星夜鴉" aria-pressed="false" aria-label="選擇星夜鴉"><img src="../assets/bookmarks/raven.png" alt=""><span>RAVEN</span></button>
+    <button class="animal-tab" type="button" data-animal="dragon" data-name="曜焰龍" aria-pressed="false" aria-label="選擇曜焰龍"><img src="../assets/bookmarks/dragon.png" alt=""><span>DRAGON</span></button>
+  </nav>
+  <p class="animal-welcome" id="animalWelcome" aria-live="polite">目前的守護圖騰：月弦貓｜銀紫月色・金屬細節</p>
+  <img class="section-art" src="../assets/art/products-title.svg" alt="神殿珍藏・訂製系列">
+  <section class="product-grid" aria-label="星月訂製商品">
+    <article class="product" data-product="gaming">
+      <figure class="product-media"><img src="../assets/catalog/gaming-set.jpg" alt="月夜主題電競桌、螢幕與電腦主機"></figure>
+      <h3>月影電競全套</h3><p>依照守護動物重新配色，從外框材質、燈光到圖騰細節，為你的桌面構築專屬星域。</p><p class="price">依客製內容報價</p><button type="button" data-select-product="月影電競全套">選擇此珍藏</button>
+    </article>
+    <article class="product" data-product="pod">
+      <figure class="product-media"><img src="../assets/catalog/sleep-pod.jpg" alt="月牙形人寵共用喵眠艙"></figure>
+      <h3>喵眠艙</h3><p>月牙艙體延伸成人與貓咪都能安歇的尺寸，布料、內襯與光色皆可依陪伴習慣訂製。</p><p class="price">依尺寸與材質報價</p><button type="button" data-select-product="喵眠艙">選擇此珍藏</button>
+    </article>
+    <article class="product" data-product="chair">
+      <figure class="product-media"><img src="../assets/catalog/crescent-chair.jpg" alt="附星月裝飾的月芽形電競椅"></figure>
+      <h3>月芽電競椅</h3><p>月弧靠背、客製飾面與設備連接構想，還可搭配全息頭盔連接功能，為遊戲時光添上儀式感。</p><p class="price">依客製內容報價</p><button type="button" data-select-product="月芽電競椅">選擇此珍藏</button>
+    </article>
+    <article class="product" data-product="feeder">
+      <figure class="product-media"><img src="../assets/catalog/smart-feeder.jpg" alt="自動補糧補水並具清潔功能的智慧寵物餵食器"></figure>
+      <h3>星流照護餵食器</h3><p>自動補糧、補水與清潔概念整合，外觀可配合家中設備與守護動物色系訂製。</p><p class="price">依容量與功能報價</p><button type="button" data-select-product="星流照護餵食器">選擇此珍藏</button>
+    </article>
+    <article class="product">
+      <figure class="product-media"><img src="../assets/catalog/companion-stand.jpg" alt="可依寵物體型調整的陪伴支架"></figure>
+      <h3>毛陪陪視線支架</h3><p>依毛孩體型與居家設備高度安排，讓你遊戲時也能一眼看見身旁的小小隊友。</p><p class="price">依尺寸與材質報價</p><button type="button" data-select-product="毛陪陪視線支架">選擇此珍藏</button>
+    </article>
+    <article class="product" data-product="keyboard">
+      <figure class="product-media"><img src="../assets/catalog/gaming-set.jpg" alt="黑曜石外觀與爪刺鏤空金屬支架的客製電競鍵盤"></figure>
+      <h3>黑曜爪刺鍵盤</h3><p>黑曜石質感鍵帽、鏤空爪刺金屬支架與動物圖騰，讓美感先行，規格隨你的遊戲習慣調整。</p><p class="price">依客製內容報價</p><button type="button" data-select-product="黑曜爪刺鍵盤">選擇此珍藏</button>
+    </article>
+  </section>
+  <section class="order-area" id="order">
+    <img src="../assets/art/order-title.svg" alt="月下訂製・訂單心願">
+    <p class="order-intro">留下你的訂製方向，神殿將為你整理一份專屬提案。<br>展示用模擬訂單不會傳送或保存所填資料。</p>
+    <form class="order-form" id="orderForm">
+      <div class="field"><label for="customerName">訂購人姓名</label><input id="customerName" name="customerName" autocomplete="name" required placeholder="請輸入姓名"></div>
+      <div class="field"><label for="customerPhone">聯絡電話</label><input id="customerPhone" name="customerPhone" type="tel" autocomplete="tel" required placeholder="請輸入電話"></div>
+      <div class="field wide"><label for="customerEmail">電子郵件</label><input id="customerEmail" name="customerEmail" type="email" autocomplete="email" placeholder="選填，展示表單不會寄信"></div>
+      <div class="field"><label for="productChoice">心儀珍藏</label><select id="productChoice" name="product" required><option value="">請選擇商品</option><option>月影電競全套</option><option>喵眠艙</option><option>月芽電競椅</option><option>星流照護餵食器</option><option>毛陪陪視線支架</option><option>黑曜爪刺鍵盤</option></select></div>
+      <div class="field"><label for="animalChoice">守護圖騰</label><select id="animalChoice" name="animal"><option>月弦貓</option><option>琥珀狐</option><option>霜狼</option><option>月桂兔</option><option>森語鹿</option><option>暮棕熊</option><option>星夜鴉</option><option>曜焰龍</option></select></div>
+      <div class="field"><label for="frameChoice">外框材質</label><select id="frameChoice" name="frame"><option>金屬細框</option><option>溫潤木框</option><option>依商品建議</option></select></div>
+      <div class="field"><label for="colorChoice">主色偏好</label><input id="colorChoice" name="color" placeholder="例：森林綠、琥珀橘"></div>
+      <fieldset class="wide"><legend class="legend">收件地區</legend><div class="address-grid">
+        <label class="hidden-label" for="county">縣市</label><select id="county" name="county" required><option value="">選擇縣市</option></select>
+        <label class="hidden-label" for="district">行政區</label><select id="district" name="district" required disabled><option value="">先選縣市</option></select>
+        <label class="hidden-label" for="postal">郵遞區號（選填）</label><input id="postal" name="postal" inputmode="numeric" placeholder="郵遞區號（選填）">
+      </div></fieldset>
+      <div class="field wide"><label for="address">收件地址</label><input id="address" name="address" autocomplete="street-address" required placeholder="請填寫模擬收件地址"></div>
+      <div class="field wide"><label for="notes">訂製想法</label><textarea id="notes" name="notes" placeholder="尺寸、動物圖騰、顏色或其他設計靈感"></textarea></div>
+      <p class="form-note">此頁僅供課堂展示流程；送出後資料只在本頁即時顯示，不會傳送至伺服器或儲存。展示用到貨資訊：預計 7–14 個工作天。</p>
+      <button class="order-submit" type="submit">送出模擬訂單</button>
+    </form>
+    <div class="confirmation" id="confirmation" role="status" aria-live="polite"></div>
+  </section>
+  <footer class="atelier-footer">月照眾生，財歸神殿 · 星月訂製皆依所選內容另行提案</footer>
+</main>
+<script>
+(()=>{
+ const animals={cat:['#c7b3ec','295deg','銀紫月色・金屬細節'],fox:['#efa84d','0deg','琥珀橘光・暖金木紋'],wolf:['#83b7e6','185deg','霜藍星霧・銀色金屬'],rabbit:['#eca9bc','325deg','柔霧粉晶・細緻緞光'],deer:['#99b88a','95deg','森林綠意・天然木紋'],bear:['#c99569','25deg','暮棕琥珀・深色木作'],raven:['#a9a0f0','230deg','星夜靛紫・冷銀金屬'],dragon:['#ec8064','345deg','曜焰赤金・琥珀光澤']};
+ const names={cat:'月弦貓',fox:'琥珀狐',wolf:'霜狼',rabbit:'月桂兔',deer:'森語鹿',bear:'暮棕熊',raven:'星夜鴉',dragon:'曜焰龍'};
+ const welcome=document.getElementById('animalWelcome');
+ document.querySelectorAll('.animal-tab').forEach(tab=>tab.addEventListener('click',()=>{
+   const key=tab.dataset.animal,[accent,hue,desc]=animals[key];document.documentElement.style.setProperty('--animal',accent);document.documentElement.style.setProperty('--animal-soft',accent+'44');document.documentElement.style.setProperty('--tint',hue);
+   document.querySelectorAll('.animal-tab').forEach(other=>other.setAttribute('aria-pressed',String(other===tab)));
+   welcome.textContent=`目前的守護圖騰：${names[key]}｜${desc}`;document.getElementById('animalChoice').value=names[key];
+ }));
+ document.querySelectorAll('[data-select-product]').forEach(button=>button.addEventListener('click',()=>{document.getElementById('productChoice').value=button.dataset.selectProduct;document.getElementById('order').scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('customerName').focus({preventScroll:true});}));
+ const areas={'臺北市':'中正區,大同區,中山區,松山區,大安區,萬華區,信義區,士林區,北投區,內湖區,南港區,文山區','新北市':'板橋區,三重區,中和區,永和區,新莊區,新店區,土城區,蘆洲區,樹林區,汐止區,淡水區,五股區,泰山區,林口區,深坑區,石碇區,坪林區,三芝區,石門區,八里區,平溪區,雙溪區,貢寮區,金山區,萬里區,烏來區','桃園市':'桃園區,中壢區,大溪區,楊梅區,蘆竹區,大園區,龜山區,八德區,龍潭區,平鎮區,新屋區,觀音區,復興區','臺中市':'中區,東區,南區,西區,北區,西屯區,南屯區,北屯區,豐原區,大里區,太平區,清水區,沙鹿區,大甲區,霧峰區,烏日區,神岡區,大肚區,大雅區,后里區,東勢區,新社區,潭子區,石岡區,外埔區,大安區,和平區','臺南市':'中西區,東區,南區,北區,安平區,安南區,永康區,歸仁區,新化區,左鎮區,玉井區,楠西區,南化區,仁德區,關廟區,龍崎區,官田區,麻豆區,佳里區,西港區,七股區,將軍區,學甲區,北門區,新營區,後壁區,白河區,東山區,六甲區,下營區,柳營區,鹽水區,善化區,大內區,山上區,新市區,安定區','高雄市':'新興區,前金區,苓雅區,鹽埕區,鼓山區,旗津區,前鎮區,三民區,楠梓區,小港區,左營區,仁武區,大社區,岡山區,路竹區,阿蓮區,田寮區,燕巢區,橋頭區,梓官區,彌陀區,永安區,湖內區,鳳山區,大寮區,林園區,鳥松區,大樹區,旗山區,美濃區,六龜區,內門區,杉林區,甲仙區,桃源區,那瑪夏區,茂林區,茄萣區','基隆市':'仁愛區,信義區,中正區,中山區,安樂區,暖暖區,七堵區','新竹市':'東區,北區,香山區','嘉義市':'東區,西區','新竹縣':'竹北市,竹東鎮,新埔鎮,關西鎮,湖口鄉,新豐鄉,芎林鄉,橫山鄉,北埔鄉,寶山鄉,峨眉鄉,尖石鄉,五峰鄉','苗栗縣':'苗栗市,頭份市,竹南鎮,後龍鎮,通霄鎮,苑裡鎮,卓蘭鎮,造橋鄉,西湖鄉,頭屋鄉,公館鄉,銅鑼鄉,三義鄉,大湖鄉,獅潭鄉,三灣鄉,南庄鄉,泰安鄉','彰化縣':'彰化市,員林市,鹿港鎮,和美鎮,田中鎮,溪湖鎮,二林鎮,北斗鎮,花壇鄉,芬園鄉,大村鄉,永靖鄉,社頭鄉,埔心鄉,埔鹽鄉,秀水鄉,福興鄉,線西鄉,伸港鄉,芳苑鄉,大城鄉,竹塘鄉,溪州鄉,埤頭鄉,田尾鄉,二水鄉','南投縣':'南投市,埔里鎮,草屯鎮,竹山鎮,集集鎮,名間鄉,鹿谷鄉,中寮鄉,魚池鄉,國姓鄉,水里鄉,信義鄉,仁愛鄉','雲林縣':'斗六市,斗南鎮,虎尾鎮,西螺鎮,土庫鎮,北港鎮,古坑鄉,大埤鄉,莿桐鄉,林內鄉,二崙鄉,崙背鄉,麥寮鄉,東勢鄉,褒忠鄉,台西鄉,元長鄉,四湖鄉,口湖鄉,水林鄉','嘉義縣':'太保市,朴子市,布袋鎮,大林鎮,民雄鄉,溪口鄉,新港鄉,六腳鄉,東石鄉,義竹鄉,鹿草鄉,水上鄉,中埔鄉,竹崎鄉,梅山鄉,番路鄉,大埔鄉,阿里山鄉','屏東縣':'屏東市,潮州鎮,東港鎮,恆春鎮,萬丹鄉,長治鄉,麟洛鄉,九如鄉,里港鄉,鹽埔鄉,高樹鄉,萬巒鄉,內埔鄉,竹田鄉,新埤鄉,枋寮鄉,新園鄉,崁頂鄉,林邊鄉,南州鄉,佳冬鄉,琉球鄉,車城鄉,滿州鄉,枋山鄉,三地門鄉,霧臺鄉,瑪家鄉,泰武鄉,來義鄉,春日鄉,獅子鄉,牡丹鄉','宜蘭縣':'宜蘭市,羅東鎮,蘇澳鎮,頭城鎮,礁溪鄉,壯圍鄉,員山鄉,冬山鄉,五結鄉,三星鄉,大同鄉,南澳鄉','花蓮縣':'花蓮市,鳳林鎮,玉里鎮,新城鄉,吉安鄉,壽豐鄉,光復鄉,豐濱鄉,瑞穗鄉,富里鄉,秀林鄉,萬榮鄉,卓溪鄉','臺東縣':'臺東市,成功鎮,關山鎮,卑南鄉,鹿野鄉,池上鄉,東河鄉,長濱鄉,太麻里鄉,大武鄉,綠島鄉,海端鄉,延平鄉,金峰鄉,達仁鄉,蘭嶼鄉','澎湖縣':'馬公市,湖西鄉,白沙鄉,西嶼鄉,望安鄉,七美鄉','金門縣':'金城鎮,金湖鎮,金沙鎮,金寧鄉,烈嶼鄉,烏坵鄉','連江縣':'南竿鄉,北竿鄉,莒光鄉,東引鄉'};
+ const county=document.getElementById('county'),district=document.getElementById('district');Object.keys(areas).forEach(name=>county.add(new Option(name,name)));
+ county.addEventListener('change',()=>{district.replaceChildren(new Option('選擇行政區',''));(areas[county.value]||'').split(',').filter(Boolean).forEach(name=>district.add(new Option(name,name)));district.disabled=!county.value;});
+ document.getElementById('orderForm').addEventListener('submit',event=>{event.preventDefault();if(!event.currentTarget.reportValidity())return;const data=new FormData(event.currentTarget);const confirmation=document.getElementById('confirmation');confirmation.innerHTML=`<img src="../assets/art/order-confirmation.svg" alt="訂單心願已收到"><span>展示用訂單：${escapeText(data.get('product'))}・${escapeText(data.get('animal'))}</span><br><span>收件地區：${escapeText(data.get('county'))}${escapeText(data.get('district'))}</span><br><strong>預計 7–14 個工作天到貨</strong><br><small>本次僅模擬送出，資料未傳送也未保存。</small>`;confirmation.classList.add('visible');confirmation.scrollIntoView({behavior:'smooth',block:'center'});event.currentTarget.reset();district.replaceChildren(new Option('先選縣市',''));district.disabled=true;});
+ function escapeText(value){return String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
+})();
+</script>
+</body></html>
