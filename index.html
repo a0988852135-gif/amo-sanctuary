@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090806">
-<meta name="description" content="AMO 神諭殿堂｜收藏原創作品、影音與音樂的靜謐之所。">
-<title>月照眾生，財歸神殿｜AMO 神諭殿堂</title>
+<meta name="description" content="月照財來｜收藏原創作品、影音與音樂的靜謐之所。">
+<title>月照財來｜神諭殿堂</title>
 <style>
 :root{
   color-scheme:dark;
@@ -421,6 +421,12 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
 .brand-moon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border:1px solid rgba(213,189,138,.58);border-radius:50%;color:#ead7a9;font:23px/1 Georgia,serif;text-shadow:0 0 9px rgba(231,205,151,.65);box-shadow:inset 0 0 12px rgba(213,189,138,.08),0 0 12px rgba(213,189,138,.13)}
 .brand-name{display:block;color:#e7d6aa;font:12px var(--serif);letter-spacing:.11em;white-space:nowrap;text-shadow:0 0 8px rgba(231,205,151,.42),0 1px 5px rgba(0,0,0,.75)}
 .nav-wordmark{width:clamp(80px,9.5vw,130px);max-height:44px;filter:brightness(1.28) drop-shadow(.45px 0 rgba(231,205,151,.82)) drop-shadow(-.45px 0 rgba(231,205,151,.82)) drop-shadow(0 .45px rgba(231,205,151,.7)) drop-shadow(0 -.45px rgba(231,205,151,.7)) drop-shadow(0 0 5px rgba(231,205,151,.48)) drop-shadow(0 0 13px rgba(213,189,138,.18))}
+.brand-name{font-size:14px;letter-spacing:.12em}
+.nav-link{display:inline-flex;align-items:center;justify-content:center;color:#e8d4a4!important;font:400 15px/1.3 var(--serif)!important;letter-spacing:.12em!important;white-space:nowrap;text-shadow:.35px 0 rgba(231,205,151,.72),-.35px 0 rgba(231,205,151,.72),0 0 8px rgba(231,205,151,.42),0 1px 5px rgba(0,0,0,.8);transition:transform .3s ease,filter .3s ease,color .3s ease}
+.nav-link:hover,.nav-link:focus-visible{transform:scale(1.06);color:#fff0c8!important;filter:drop-shadow(0 0 8px rgba(231,205,151,.72));outline:none}
+.door-label{color:#ead7a9;font:13px var(--serif);letter-spacing:.14em;text-shadow:0 0 10px rgba(231,205,151,.64),0 2px 8px rgba(0,0,0,.9)}
+.atelier-title-link{color:#e8d4a4;font:400 25px/1.4 var(--serif);letter-spacing:.2em;text-shadow:.4px 0 rgba(231,205,151,.7),-.4px 0 rgba(231,205,151,.7),0 0 12px rgba(231,205,151,.5),0 2px 10px rgba(0,0,0,.84)}
+.atelier-title-link img{display:none}
 .nav a.image-link:hover,.nav a.image-link:focus-visible{filter:brightness(1.34) drop-shadow(0 0 9px rgba(241,219,168,.78)) drop-shadow(0 0 18px rgba(226,197,137,.34))}
 
 /* Feather the sanctuary artwork into the same nebula instead of leaving hard image edges. */
@@ -436,17 +442,16 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
 <header class="site-header">
-  <a class="brand" href="#sanctuary" aria-label="月照眾生，財歸神殿｜AMO 神諭殿堂首頁">
+  <a class="brand" href="#sanctuary" aria-label="月照財來神諭殿堂首頁">
     <span class="brand-moon" aria-hidden="true">☾</span>
     <span class="brand-name">月照眾生，財歸神殿</span>
   </a>
   <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">選單</button>
   <nav class="nav" id="mainNav" aria-label="主要導覽">
-    <a class="image-link" href="#sanctuary" aria-label="中堂"><img class="nav-wordmark" src="assets/catalog/amo-mark.png" alt="中堂"></a>
-    <a class="image-link" href="bathing/" aria-label="沐浴神殿"><img class="nav-wordmark" src="assets/catalog/title-bathing.png" alt="沐浴神殿"></a>
-    <a class="image-link" href="revelation/" aria-label="主神揭幕儀式"><img class="nav-wordmark" src="assets/catalog/title-revelation.png" alt="主神揭幕儀式"></a>
-    <a class="image-link" href="wishes/" aria-label="萬願祈殿"><img class="nav-wordmark" src="assets/catalog/title-wishes.png" alt="萬願祈殿"></a>
-    <a class="image-link" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A8%82%E8%A3%BD%E6%89%80" aria-label="星月訂製所"><img class="nav-wordmark" src="assets/catalog/title-atelier.png" alt="星月訂製所"></a>
+    <a class="nav-link" href="bathing/" aria-label="沐浴神殿">沐浴神殿</a>
+    <a class="nav-link" href="revelation/" aria-label="月光指引">月光指引</a>
+    <a class="nav-link" href="wishes/" aria-label="萬願祈殿">萬願祈殿</a>
+    <a class="nav-link" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A3%BD%E9%80%A0" aria-label="星月製造">星月製造</a>
   </nav>
 </header>
 
@@ -454,9 +459,9 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
   <section class="hero" id="sanctuary" aria-label="神諭殿堂中堂與三個隱藏機關">
     <div class="hero-inner">
       <img class="hero-art" src="https://drive.google.com/thumbnail?id=1e4OgEQpiqC-C-TmCQOMcYxpp7tLjwoUR&sz=w2000" alt="AMO 神諭殿堂中堂場景" fetchpriority="high">
-      <a class="door-target door-one" href="wishes/" aria-label="火把：開啟萬願祈殿"><span><img class="door-wordmark" src="assets/catalog/title-wishes.png" alt=""></span></a>
-      <a class="door-target door-two" href="revelation/" aria-label="星盤：開啟主神揭幕儀式"><span><img class="door-wordmark" src="assets/catalog/title-revelation.png" alt=""></span></a>
-      <a class="door-target door-three" href="bathing/" aria-label="古鐘：開啟沐浴神殿"><span><img class="door-wordmark" src="assets/catalog/title-bathing.png" alt=""></span></a>
+      <a class="door-target door-one" href="wishes/" aria-label="火把：開啟萬願祈殿"><span class="door-label">萬願祈殿</span></a>
+      <a class="door-target door-two" href="revelation/" aria-label="星盤：開啟月光指引"><span class="door-label">月光指引</span></a>
+      <a class="door-target door-three" href="bathing/" aria-label="古鐘：開啟沐浴神殿"><span class="door-label">沐浴神殿</span></a>
     </div>
   </section>
 
@@ -470,7 +475,7 @@ body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(
   <section class="atelier-entry" aria-labelledby="atelierTitle">
     <div class="atelier-entry-card">
       <span class="eyebrow">LUNAR SANCTUARY · CUSTOM ATELIER</span>
-      <a class="atelier-title-link" id="atelierTitle" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A8%82%E8%A3%BD%E6%89%80" aria-label="前往星月訂製所"><img src="assets/catalog/title-atelier.png" alt="星月訂製所"></a>
+      <a class="atelier-title-link" id="atelierTitle" href="https://sites.google.com/view/mowwwwa/%E6%98%9F%E6%9C%88%E8%A3%BD%E9%80%A0" aria-label="前往星月製造">星月製造</a>
       <p>選擇你的守護動物與色彩，探索為你和毛孩而設的客製電競與生活珍藏。</p>
       <p class="humor-line">入殿隨願，出殿隨緣——餘額亦然。</p>
     </div>
