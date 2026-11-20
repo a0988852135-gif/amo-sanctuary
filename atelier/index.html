@@ -177,7 +177,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
  const note=document.getElementById('animalMaterialNote');
  document.querySelectorAll('.product-media').forEach(media=>{const mark=document.createElementNS('http://www.w3.org/2000/svg','svg');mark.setAttribute('class','product-guardian-mark');mark.setAttribute('viewBox','0 0 100 100');mark.setAttribute('aria-hidden','true');const use=document.createElementNS('http://www.w3.org/2000/svg','use');use.setAttribute('href','../assets/art/animal-line-icons.svg?v=20261120f#cat');mark.append(use);media.append(mark)});
  const darkAnimals=new Set(['cat','wolf','bear','raven','dragon']);
- const catOverrides={gaming:'../assets/catalog/cat-gaming.jpg?v=20261120h',keyboard:'../assets/catalog/cat-keyboard.jpg?v=20261120h'};
+ const catOverrides={gaming:'../assets/catalog/cat-gaming.jpg?v=20261120h',keyboard:'../assets/catalog/cat-keyboard.jpg?v=20261120h',chair:'../assets/catalog/cat-chair.jpg?v=20261120h',pod:'../assets/catalog/cat-pod.jpg?v=20261120h',companion:'../assets/catalog/cat-companion.jpg?v=20261120h'};
  const validAnimal=key=>Object.hasOwn(animals,key);
  function chooseAnimal(key,save=true){
    if(!validAnimal(key))key='cat';
