@@ -5,7 +5,7 @@
 <meta name="theme-color" content="#07152a">
 <meta name="description" content="星月製造｜為你與毛孩量身構想的月下訂製珍藏。">
 <title>星月製造｜月照財來</title>
-<link rel="stylesheet" href="../sanctuary.css">
+<link rel="stylesheet" href="../sanctuary.css?v=20261120a">
 <style>
 :root{--animal:#8f81a7;--animal-soft:rgba(143,129,167,.2)}
 body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 48%,rgba(4,12,26,.34))}
@@ -20,17 +20,21 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .animal-rail{display:flex;gap:clamp(8px,1.4vw,18px);align-items:flex-start;justify-content:center;flex-wrap:wrap;margin:8px auto 26px;padding:4px 0}
 .animal-tab{--bookmark-color:#8f81a7;position:relative;display:grid;justify-items:center;width:clamp(64px,8vw,90px);padding:0 2px 6px;border:0;background:none;color:var(--bookmark-color);cursor:pointer;transition:transform .3s ease,filter .3s ease}
 .animal-tab[data-animal="cat"]{--bookmark-color:#8f81a7}.animal-tab[data-animal="fox"]{--bookmark-color:#a67c57}.animal-tab[data-animal="wolf"]{--bookmark-color:#788fa2}.animal-tab[data-animal="rabbit"]{--bookmark-color:#b18b92}.animal-tab[data-animal="deer"]{--bookmark-color:#78896d}.animal-tab[data-animal="bear"]{--bookmark-color:#8a705c}.animal-tab[data-animal="raven"]{--bookmark-color:#6f7691}.animal-tab[data-animal="dragon"]{--bookmark-color:#9d6e68}
-.animal-tab img{display:block;width:100%;height:auto;filter:saturate(.76) drop-shadow(0 5px 11px rgba(0,0,0,.38));-webkit-mask-image:radial-gradient(ellipse 86% 92% at center,#000 58%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.48) 90%,transparent 100%);mask-image:radial-gradient(ellipse 86% 92% at center,#000 58%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.48) 90%,transparent 100%);transition:filter .3s ease}
+.animal-tab img{display:block;width:100%;height:auto;filter:saturate(.7) drop-shadow(0 5px 11px rgba(0,0,0,.34));-webkit-mask-image:radial-gradient(ellipse 86% 92% at center,#000 58%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.48) 90%,transparent 100%);mask-image:radial-gradient(ellipse 86% 92% at center,#000 58%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.48) 90%,transparent 100%);transition:filter .3s ease}
 .animal-tab span{color:var(--bookmark-color);font:10px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-shadow:0 1px 8px #020817}
+.animal-tab[aria-pressed="true"]{color:var(--animal)}
+.animal-tab[aria-pressed="true"] span{color:var(--animal)}
 .animal-tab:hover,.animal-tab:focus-visible,.animal-tab[aria-pressed="true"]{transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 0 8px var(--bookmark-color))}
+.animal-tab[aria-pressed="true"]{filter:drop-shadow(0 0 8px var(--animal))}
 .animal-tab:focus-visible{outline:1px solid var(--bookmark-color);outline-offset:4px;border-radius:3px}
-.animal-tab[aria-pressed="true"]::after{content:"";position:absolute;bottom:0;width:24px;height:1px;background:var(--bookmark-color);box-shadow:0 0 8px var(--bookmark-color)}
+.animal-tab[aria-pressed="true"]::after{content:"";position:absolute;bottom:0;width:24px;height:1px;background:var(--animal);box-shadow:0 0 8px var(--animal)}
 .animal-welcome{width:min(790px,94vw);margin:0 auto 18px;text-align:center;color:#eadab8;font:13px/1.8 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.08em;text-shadow:0 1px 10px #020817}
+.animal-emblem{display:block;width:64px;height:64px;object-fit:contain;margin:2px auto 8px;filter:drop-shadow(0 0 10px var(--animal-soft));transition:filter .45s ease}
 .animal-welcome-art{display:block;width:min(790px,94vw);height:auto;margin:0 auto 18px;filter:drop-shadow(0 0 8px var(--animal-soft))}
 .section-art{display:block;width:min(560px,72vw);height:auto;margin:14px auto 22px;filter:drop-shadow(0 0 9px rgba(213,189,138,.28))}
 .order-title-art{display:block;width:min(760px,86vw);height:auto;object-fit:contain;margin:14px auto 22px;filter:drop-shadow(0 0 10px rgba(213,189,138,.34))}
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,40px);align-items:start}
-.product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:0 0 15px;background:transparent}
+.product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:12px 0 15px;border-top:1px solid color-mix(in srgb,var(--animal) 38%,transparent);box-shadow:inset 0 1px 0 var(--animal-soft);background:transparent;transition:border-color .45s ease,box-shadow .45s ease}
 .product-media{position:relative;overflow:visible;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
 .product-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 74% 76% at center,transparent 48%,rgba(7,21,42,.18) 69%,rgba(7,21,42,.58) 100%);-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mix-blend-mode:multiply}
 .product-media img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;transition:transform .65s ease;-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%)}
@@ -52,7 +56,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .field{display:grid;gap:6px;text-align:left}
 .field.wide{grid-column:1/-1}
 .field label,.legend{color:#e8d6ad;font:12px "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.1em;text-shadow:0 1px 8px #020817}
-.field input,.field select,.field textarea{width:100%;min-height:42px;padding:10px 12px;border:1px solid rgba(213,189,138,.35);border-radius:2px;background:rgba(4,13,28,.58);color:#f0e7d5;font:13px system-ui,sans-serif;outline:none}
+.field input,.field select,.field textarea{width:100%;min-height:42px;padding:10px 12px;border:1px solid color-mix(in srgb,var(--animal) 48%,transparent);border-radius:2px;background:rgba(4,13,28,.58);color:#f0e7d5;font:13px system-ui,sans-serif;outline:none}
 .field textarea{min-height:78px;resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--animal);box-shadow:0 0 12px var(--animal-soft)}
 .field select option{background:#0b1729;color:#f0e7d5}
@@ -92,6 +96,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
     <button class="animal-tab" type="button" data-animal="raven" data-name="星夜鴉" aria-pressed="false" aria-label="選擇星夜鴉"><img src="../assets/bookmarks/raven.png" alt=""><span>RAVEN</span></button>
     <button class="animal-tab" type="button" data-animal="dragon" data-name="曜焰龍" aria-pressed="false" aria-label="選擇曜焰龍"><img src="../assets/bookmarks/dragon.png" alt=""><span>DRAGON</span></button>
   </nav>
+  <img class="animal-emblem" id="animalEmblem" src="../assets/bookmarks/cat.png" alt="" aria-hidden="true">
   <img class="animal-welcome-art" id="animalWelcome" src="../assets/art/animal-current.svg?v=20261119" alt="目前的守護圖騰：月弦貓｜銀紫月色・金屬細節" aria-live="polite">
   <img class="section-art" src="../assets/art/products-title.svg?v=20261119" alt="神殿珍藏・訂製系列">
   <section class="product-grid" aria-label="星月訂製商品">
@@ -150,8 +155,10 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
  const animals={cat:['#8f81a7','月霧薰紫・冷銀細節'],fox:['#a67c57','柔霧琥珀・暖金木紋'],wolf:['#788fa2','霜藍灰銀・冷調金屬'],rabbit:['#b18b92','灰粉月晶・柔霧緞光'],deer:['#78896d','霧杉鼠尾草綠・天然木紋'],bear:['#8a705c','煙棕古銅・深色木作'],raven:['#6f7691','暮靛灰紫・冷銀金屬'],dragon:['#9d6e68','灰陶赤銅・柔和琥珀光']};
  const names={cat:'月弦貓',fox:'琥珀狐',wolf:'霜狼',rabbit:'月桂兔',deer:'森語鹿',bear:'暮棕熊',raven:'星夜鴉',dragon:'曜焰龍'};
  const welcome=document.getElementById('animalWelcome');
+ const emblem=document.getElementById('animalEmblem');
  document.querySelectorAll('.animal-tab').forEach(tab=>tab.addEventListener('click',()=>{
    const key=tab.dataset.animal,[accent,desc]=animals[key];document.documentElement.style.setProperty('--animal',accent);document.documentElement.style.setProperty('--animal-soft',accent+'44');
+   emblem.src=`../assets/bookmarks/${key}.png`;
    document.querySelectorAll('.animal-tab').forEach(other=>other.setAttribute('aria-pressed',String(other===tab)));
    const line=`目前的守護圖騰：${names[key]}｜${desc}`;welcome.alt=line;welcome.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 100"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#a98b52"/><stop offset=".5" stop-color="#f0dfa9"/><stop offset="1" stop-color="#b9985b"/></linearGradient></defs><path d="M90 52h150m720 0h150" stroke="${accent}" fill="none" opacity=".75"/><text x="550" y="64" text-anchor="middle" fill="url(#g)" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="31" letter-spacing="4">${line}</text></svg>`);document.getElementById('animalChoice').value=names[key];
  }));
