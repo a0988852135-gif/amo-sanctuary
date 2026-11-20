@@ -177,6 +177,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
  const note=document.getElementById('animalMaterialNote');
  document.querySelectorAll('.product-media').forEach(media=>{const mark=document.createElementNS('http://www.w3.org/2000/svg','svg');mark.setAttribute('class','product-guardian-mark');mark.setAttribute('viewBox','0 0 100 100');mark.setAttribute('aria-hidden','true');const use=document.createElementNS('http://www.w3.org/2000/svg','use');use.setAttribute('href','../assets/art/animal-line-icons.svg?v=20261120f#cat');mark.append(use);media.append(mark)});
  const darkAnimals=new Set(['cat','wolf','bear','raven','dragon']);
+ const catOverrides={gaming:'../assets/catalog/cat-gaming.jpg?v=20261120h',keyboard:'../assets/catalog/cat-keyboard.jpg?v=20261120h'};
  const validAnimal=key=>Object.hasOwn(animals,key);
  function chooseAnimal(key,save=true){
    if(!validAnimal(key))key='cat';
@@ -187,7 +188,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
    document.querySelectorAll('.product-guardian-mark use').forEach(use=>use.setAttribute('href',`../assets/art/animal-line-icons.svg?v=20261120f#${key}`));
    document.querySelectorAll('.product').forEach(card=>{
      const kind=card.dataset.product,variants=art[kind],img=card.querySelector('.product-media img');if(!variants||!img)return;
-     const src=variants[key]||(darkAnimals.has(key)?`../assets/catalog/${key}-${kind}.jpg?v=20261120g`:null)||(lightTheme?(variants.herbivore||variants.rabbit||variants.deer):variants.carnivore)||variants.carnivore;
+     const src=(key==='cat'?catOverrides[kind]:null)||variants[key]||(darkAnimals.has(key)?`../assets/catalog/${key}-${kind}.jpg?v=20261120g`:null)||(lightTheme?(variants.herbivore||variants.rabbit||variants.deer):variants.carnivore)||variants.carnivore;
      if(src){img.src=src;img.alt=`${names[key]}主題的${card.querySelector('.product-copy-art')?.alt?.split('。')[0]||'訂製商品'}，配合${desc}設計。`}
    });
    const line=`目前的守護動物：${names[key]}｜${desc}`;welcome.alt=line;
