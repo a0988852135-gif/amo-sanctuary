@@ -1,4 +1,4 @@
-:root{color-scheme:dark;--gold:#d5bd8a;--pale:#eee7d7;--navy:#07152a;--page-width:1120px}
+:root{color-scheme:dark;--gold:#d5bd8a;--pale:#eee7d7;--navy:#07152a;--page-width:1120px;--animal:#8f81a7;--animal-soft:rgba(143,129,167,.24)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:#07152a}
 body{position:relative;isolation:isolate;margin:0;min-height:100vh;background:#07152a;color:var(--pale);font-family:"Noto Serif TC",serif;overflow-x:hidden}
@@ -66,3 +66,26 @@ main{width:min(var(--page-width),calc(100% - 36px));margin:0 auto 9vh;text-align
 @media(max-width:760px){.art-title{width:92vw;margin-top:14px;margin-bottom:10px}.art-copy{width:92vw;margin-bottom:18px}.art-copy.compact{width:88vw;margin-bottom:16px}}
 @media(max-width:760px){.site-header{min-height:64px;padding:8px 12px;gap:12px}.brand-mark-image{width:58px}.brand-name{font-size:12px}.site-nav{gap:8px;justify-content:flex-start}.site-nav .nav-link{font-size:13px}.nav-wordmark{width:clamp(58px,15vw,88px);max-height:34px}.page-nav{width:100%;margin:8px auto 18px;gap:9px;padding-inline:8px;justify-content:flex-start;overflow-x:auto}.nav-wordmark{flex:0 0 auto}.page-title{width:min(92vw,640px);margin:16px auto 18px}.page-title-text{margin:16px auto 18px;font-size:24px}.door-target{top:63%;height:19%;width:31%}.door-target span{bottom:-30px}.door-wordmark{width:clamp(74px,21vw,128px);max-height:48px}.intro{padding:42px 18px 34px}.intro-copy{font-size:13px}.page-art{margin-bottom:20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.image-link,.back,.atelier-title-link,.atelier-link,.door-target,.door-target span{transition:none}}
+
+/* Let the selected guardian tint the shared navigation and focus details across pages. */
+.site-header{border-bottom-color:color-mix(in srgb,var(--animal) 38%,transparent);box-shadow:0 5px 24px -15px var(--animal-soft)}
+.brand-moon{border-color:color-mix(in srgb,var(--animal) 70%,transparent);color:var(--animal);text-shadow:0 0 10px var(--animal-soft);box-shadow:inset 0 0 12px var(--animal-soft),0 0 14px var(--animal-soft)}
+.brand-name{ text-shadow:0 0 9px var(--animal-soft),0 1px 5px rgba(0,0,0,.75)}
+.site-nav .nav-link[aria-current="page"]{color:var(--animal);filter:drop-shadow(0 0 8px var(--animal-soft))}
+.site-nav .nav-link:hover,.site-nav .nav-link:focus-visible{color:var(--animal);filter:drop-shadow(0 0 9px var(--animal-soft))}
+.page-nav a[aria-current="page"],.page-nav a:hover,.page-nav a:focus-visible,.back:hover,.back:focus-visible{color:var(--animal);filter:drop-shadow(0 0 8px var(--animal-soft))}
+.page-nav{border-top:1px solid color-mix(in srgb,var(--animal) 35%,transparent);border-bottom:1px solid color-mix(in srgb,var(--animal) 35%,transparent)}
+.footer{border-top-color:color-mix(in srgb,var(--animal) 36%,transparent)}
+
+/* Blend every featured deity scene into the night sky on all inner pages. */
+.page-art{position:relative;isolation:isolate;overflow:hidden;background:#07152a}
+.page-art::before,.page-art::after{content:"";position:absolute;z-index:1;inset:0;pointer-events:none}
+.page-art::before{background:linear-gradient(90deg,#07152a 0,rgba(7,21,42,.72) 4%,transparent 13%,transparent 87%,rgba(7,21,42,.72) 96%,#07152a 100%)}
+.page-art::after{background:linear-gradient(180deg,#07152a 0,rgba(7,21,42,.58) 5%,transparent 15%,transparent 84%,rgba(7,21,42,.74) 96%,#07152a 100%)}
+.full-scene{
+  position:relative;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%),linear-gradient(0deg,transparent 0,#000 11%,#000 89%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%),linear-gradient(0deg,transparent 0,#000 11%,#000 89%,transparent 100%);
+  mask-composite:intersect;
+}
