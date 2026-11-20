@@ -1,4 +1,4 @@
-:root{color-scheme:dark;--gold:#d5bd8a;--pale:#eee7d7;--navy:#07152a;--page-width:1120px;--animal:#8f81a7;--animal-soft:rgba(143,129,167,.24)}
+:root{color-scheme:dark;--gold:#d5bd8a;--pale:#eee7d7;--navy:#07152a;--page-width:1120px;--animal:#71627f;--animal-soft:rgba(113,98,127,.24)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:#07152a}
 body{position:relative;isolation:isolate;margin:0;min-height:100vh;background:#07152a;color:var(--pale);font-family:"Noto Serif TC",serif;overflow-x:hidden}

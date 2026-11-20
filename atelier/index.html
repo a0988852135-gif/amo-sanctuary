@@ -5,9 +5,9 @@
 <meta name="theme-color" content="#07152a">
 <meta name="description" content="星月製造｜為你與毛孩量身構想的月下訂製珍藏。">
 <title>星月製造｜月照財來</title>
-<link rel="stylesheet" href="../sanctuary.css?v=20261120b">
+<link rel="stylesheet" href="../sanctuary.css?v=20261120f">
 <style>
-:root{--animal:#8f81a7;--animal-soft:rgba(143,129,167,.2)}
+:root{--animal:#71627f;--animal-soft:rgba(113,98,127,.24)}
 body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 48%,rgba(4,12,26,.34))}
 .site-header{position:relative}
 .atelier-main{width:min(1260px,calc(100% - 34px));margin:0 auto 60px}
@@ -19,29 +19,30 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .animal-intro img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 8px var(--animal-soft))}
 .animal-rail{display:flex;gap:clamp(8px,1.4vw,18px);align-items:flex-start;justify-content:center;flex-wrap:wrap;margin:8px auto 26px;padding:4px 0}
 .animal-tab{position:relative;display:grid;justify-items:center;width:clamp(64px,8vw,90px);padding:0 2px 6px;border:0;background:none;color:#d5bd8a;cursor:pointer;transition:transform .3s ease,filter .3s ease}
-.animal-tab[data-animal="cat"]{--bookmark-color:#8f81a7}.animal-tab[data-animal="fox"]{--bookmark-color:#a67c57}.animal-tab[data-animal="wolf"]{--bookmark-color:#788fa2}.animal-tab[data-animal="rabbit"]{--bookmark-color:#b18b92}.animal-tab[data-animal="deer"]{--bookmark-color:#78896d}.animal-tab[data-animal="bear"]{--bookmark-color:#8a705c}.animal-tab[data-animal="raven"]{--bookmark-color:#6f7691}.animal-tab[data-animal="dragon"]{--bookmark-color:#9d6e68}
-.animal-art{position:relative;display:block;width:clamp(58px,7.2vw,80px);aspect-ratio:1;margin-bottom:5px}
+.animal-tab[data-animal="cat"]{--bookmark-color:#71627f}.animal-tab[data-animal="fox"]{--bookmark-color:#a08a69}.animal-tab[data-animal="wolf"]{--bookmark-color:#7188a2}.animal-tab[data-animal="rabbit"]{--bookmark-color:#bd929c}.animal-tab[data-animal="deer"]{--bookmark-color:#929e82}.animal-tab[data-animal="bear"]{--bookmark-color:#80644f}.animal-tab[data-animal="raven"]{--bookmark-color:#6c6b82}.animal-tab[data-animal="dragon"]{--bookmark-color:#925b61}
+.animal-art{position:relative;display:block;width:clamp(64px,7.8vw,88px);aspect-ratio:1;margin-bottom:5px}
 .animal-line{display:block;width:100%;height:100%;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;color:#d5bd8a;filter:drop-shadow(0 0 3px rgba(213,189,138,.25));transition:filter .35s ease}
-.animal-gem{position:absolute;top:9%;left:50%;width:7px;height:7px;transform:translateX(-50%) rotate(45deg);border:1px solid #d5bd8a;background:#07152a;box-shadow:0 0 5px rgba(213,189,138,.3);transition:.35s ease}
-.animal-eye-light{position:absolute;top:52%;left:50%;width:24px;height:7px;transform:translateX(-50%);background:radial-gradient(circle at 18% 50%,var(--animal) 0 1.6px,transparent 2.5px),radial-gradient(circle at 82% 50%,var(--animal) 0 1.6px,transparent 2.5px);opacity:.12;filter:drop-shadow(0 0 5px var(--animal));transition:opacity .35s ease}
+.animal-tab{--eye-a:37%;--eye-b:63%;--eye-y:53%}
+.animal-tab[data-animal="rabbit"]{--eye-y:55%}.animal-tab[data-animal="deer"]{--eye-y:54%}.animal-tab[data-animal="bear"]{--eye-y:54%}
+.animal-tab[data-animal="raven"]{--eye-a:47%;--eye-b:47%;--eye-y:43%}.animal-tab[data-animal="dragon"]{--eye-a:42%;--eye-b:42%;--eye-y:46%}
+.animal-gem{position:absolute;top:9%;left:50%;width:8px;height:8px;transform:translateX(-50%) rotate(45deg);border:1px solid #d5bd8a;background:#07152a;box-shadow:0 0 3px rgba(213,189,138,.14);transition:.35s ease}
+.animal-eye-light{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;background:radial-gradient(circle at var(--eye-a) var(--eye-y),var(--animal) 0 2px,transparent 4.8px),radial-gradient(circle at var(--eye-b) var(--eye-y),var(--animal) 0 2px,transparent 4.8px);opacity:0;filter:drop-shadow(0 0 5px var(--animal));transition:opacity .35s ease}
 .animal-label{color:#c9b682;font:10px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-shadow:0 1px 8px #020817}
 .animal-tab[aria-pressed="true"] .animal-label{color:var(--animal)}
-.animal-tab[aria-pressed="true"] .animal-gem{border-color:var(--animal);background:var(--animal);box-shadow:0 0 12px 3px var(--animal-soft)}
-.animal-tab[aria-pressed="true"] .animal-eye-light{opacity:1}
-.animal-tab[aria-pressed="true"] .animal-line{filter:drop-shadow(0 0 5px rgba(213,189,138,.6))}
+.animal-tab[aria-pressed="true"] .animal-gem{border-color:var(--animal);background:var(--animal);box-shadow:0 0 14px 4px var(--animal-soft);transform:translateX(-50%) rotate(45deg) scale(1.18)}
+.animal-tab[aria-pressed="true"] .animal-eye-light{opacity:1;filter:drop-shadow(0 0 8px var(--animal))}
+.animal-tab[aria-pressed="true"] .animal-line{filter:brightness(1.2) drop-shadow(0 0 6px rgba(213,189,138,.68))}
 .animal-tab:hover,.animal-tab:focus-visible,.animal-tab[aria-pressed="true"]{transform:translateY(-4px) scale(1.04)}
 .animal-tab:focus-visible{outline:1px solid var(--animal);outline-offset:4px;border-radius:3px}
 .animal-welcome{width:min(790px,94vw);margin:0 auto 18px;text-align:center;color:#eadab8;font:13px/1.8 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.08em;text-shadow:0 1px 10px #020817}
 .animal-welcome-art{display:block;width:min(790px,94vw);height:auto;margin:0 auto 18px;filter:drop-shadow(0 0 8px var(--animal-soft))}
 .animal-material-note{margin:-8px auto 20px;color:#d8c79f;font:11px/1.8 system-ui,sans-serif;letter-spacing:.16em;text-align:center}
-.wallpaper-card{width:min(760px,94vw);margin:4px auto 30px;text-align:center}
-.wallpaper-card a{display:block;color:#ead9af;text-decoration:none;letter-spacing:.16em;font:11px/1.8 system-ui,sans-serif}
-.wallpaper-card img{display:block;width:100%;height:auto;margin:0 auto 9px;border:1px solid rgba(213,189,138,.25);box-shadow:0 12px 30px rgba(0,0,0,.35);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
 .section-art{display:block;width:min(560px,72vw);height:auto;margin:14px auto 22px;filter:drop-shadow(0 0 9px rgba(213,189,138,.28))}
 .order-title-art{display:block;width:min(760px,86vw);height:auto;object-fit:contain;margin:14px auto 22px;filter:drop-shadow(0 0 10px rgba(213,189,138,.34))}
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,40px);align-items:start}
 .product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:12px 0 15px;border-top:1px solid color-mix(in srgb,var(--animal) 54%,transparent);box-shadow:inset 0 1px 0 var(--animal-soft);background:linear-gradient(180deg,var(--animal-soft),transparent 42%);transition:border-color .45s ease,box-shadow .45s ease,background .45s ease}
 .product-media{position:relative;overflow:visible;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
+.product-guardian-mark{position:absolute;right:14px;bottom:14px;z-index:2;width:42px;height:42px;padding:7px;border:1px solid rgba(213,189,138,.48);border-radius:50%;background:rgba(5,14,28,.58);fill:none;stroke:#d5bd8a;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(213,189,138,.32));pointer-events:none}
 .product-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 74% 76% at center,transparent 48%,rgba(7,21,42,.18) 69%,rgba(7,21,42,.58) 100%);-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mix-blend-mode:multiply}
 .product-media img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;transition:transform .65s ease;-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%)}
 .product:hover .product-media img{transform:scale(1.018)}
@@ -104,31 +105,30 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
   </nav>
   <img class="animal-welcome-art" id="animalWelcome" src="../assets/art/animal-current.svg?v=20261119" alt="目前的守護圖騰：月弦貓｜銀紫月色・金屬細節" aria-live="polite">
   <p class="animal-material-note" id="animalMaterialNote">深色系・月亮金屬・銀紫微光</p>
-  <section class="wallpaper-card" aria-label="GG GEAR LAB 桌布"><a href="../assets/catalog/gg-gear-lab-wallpaper.svg" download="GG-GEAR-LAB-wallpaper.svg"><img src="../assets/catalog/gg-gear-lab-wallpaper.png" alt="深藍星河中的白兔守護者桌布，左側預留 GG GEAR LAB 標題。">下載 GG GEAR LAB 桌布</a></section>
   <img class="section-art" src="../assets/art/products-title.svg?v=20261119" alt="神殿珍藏・訂製系列">
   <section class="product-grid" aria-label="星月訂製商品">
     <article class="product" data-product="gaming">
-      <figure class="product-media"><img src="../assets/catalog/gaming-set.jpg" alt="月夜主題電競桌、螢幕與電腦主機"></figure>
+      <figure class="product-media"><img src="../assets/catalog/gaming-set.jpg" alt="月夜主題電競桌、螢幕與電腦主機" loading="lazy" decoding="async"></figure>
       <img class="product-copy-art" src="../assets/art/product-gaming.svg?v=20261119" alt="月影電競全套。依守護動物配色，訂製外框材質、燈光與圖騰細節，為桌面構築專屬星域。依客製內容報價。"><button type="button" data-select-product="月影電競全套" aria-label="選擇月影電競全套"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
     <article class="product" data-product="pod">
-      <figure class="product-media"><img src="../assets/catalog/sleep-pod.jpg" alt="月牙形人寵共用喵眠艙"></figure>
+      <figure class="product-media"><img src="../assets/catalog/sleep-pod.jpg" alt="月牙形人寵共用喵眠艙" loading="lazy" decoding="async"></figure>
       <img class="product-copy-art" src="../assets/art/product-pod.svg?v=20261119" alt="喵眠艙。月牙艙體為人與貓咪延伸舒適尺寸，內襯與光色可選，依照陪伴習慣細緻訂製。依尺寸與材質報價。"><button type="button" data-select-product="喵眠艙" aria-label="選擇喵眠艙"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
     <article class="product" data-product="chair">
-      <figure class="product-media"><img src="../assets/catalog/crescent-chair.jpg" alt="附星月裝飾的月芽形電競椅"></figure>
+      <figure class="product-media"><img src="../assets/catalog/crescent-chair.jpg" alt="附星月裝飾的月芽形電競椅" loading="lazy" decoding="async"></figure>
       <img class="product-copy-art" src="../assets/art/product-chair.svg?v=20261119" alt="月芽電競椅。月弧椅背與客製飾面，可串接全套電競設備並預留全息頭盔連接功能構想。依客製內容報價。"><button type="button" data-select-product="月芽電競椅" aria-label="選擇月芽電競椅"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
     <article class="product" data-product="feeder">
-      <figure class="product-media"><img src="../assets/catalog/smart-feeder.jpg" alt="自動補糧補水並具清潔功能的智慧寵物餵食器"></figure>
+      <figure class="product-media"><img src="../assets/catalog/smart-feeder.jpg" alt="自動補糧補水並具清潔功能的智慧寵物餵食器" loading="lazy" decoding="async"></figure>
       <img class="product-copy-art" src="../assets/art/product-feeder.svg?v=20261119" alt="星流照護餵食器。整合自動補糧、補水與清潔概念，外觀與容量可配合寵物及居家空間訂製。依容量與功能報價。"><button type="button" data-select-product="星流照護餵食器" aria-label="選擇星流照護餵食器"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
     <article class="product" data-product="companion">
-      <figure class="product-media"><img src="../assets/catalog/companion-stand.jpg" alt="可依寵物體型調整的陪伴支架"></figure>
+      <figure class="product-media"><img src="../assets/catalog/companion-stand.jpg" alt="可依寵物體型調整的陪伴支架" loading="lazy" decoding="async"></figure>
       <img class="product-copy-art" src="../assets/art/product-companion.svg?v=20261119" alt="毛陪陪視線支架。依毛孩體型與設備高度調整，遊戲途中也能一眼看見小小隊友。依尺寸與材質報價。"><button type="button" data-select-product="毛陪陪視線支架" aria-label="選擇毛陪陪視線支架"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
     <article class="product" data-product="keyboard">
-      <figure class="product-media"><img src="../assets/catalog/gaming-set.jpg" alt="黑曜石外觀與爪刺鏤空金屬支架的客製電競鍵盤"></figure>
+      <figure class="product-media"><img src="../assets/catalog/gaming-set.jpg" alt="黑曜石外觀與爪刺鏤空金屬支架的客製電競鍵盤" loading="lazy" decoding="async"></figure>
       <img class="product-copy-art" src="../assets/art/product-keyboard.svg?v=20261120b" alt="星月訂製鍵盤。按鍵、木作或金屬支架與燈光依守護動物主題搭配。"><button type="button" data-select-product="星月訂製鍵盤" aria-label="選擇星月訂製鍵盤"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
   </section>
@@ -159,36 +159,39 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 </main>
 <script>
 (()=>{
- const animals={cat:['#8f81a7','月霧薰紫・深色月亮金屬'],fox:['#a67c57','柔霧琥珀・深色月亮金屬'],wolf:['#788fa2','霜藍灰銀・深色月亮金屬'],rabbit:['#bd8990','沙漠玫瑰・鏤空木作太陽'],deer:['#78896d','柔霧鼠尾草綠・鏤空木作太陽'],bear:['#8a705c','煙棕古銅・深色月亮金屬'],raven:['#6f7691','暮靛灰紫・深色月亮金屬'],dragon:['#9d6e68','灰陶赤銅・深色月亮金屬']};
+ const animals={cat:['#71627f','黑紫・金屬月亮框架'],fox:['#a08a69','淺沙岩大地色・木作太陽框架'],wolf:['#7188a2','黑藍霧色・金屬月亮框架'],rabbit:['#bd929c','白粉沙漠玫瑰・木作太陽框架'],deer:['#929e82','白綠鼠尾草・木作太陽框架'],bear:['#80644f','深咖啡大地色・金屬月亮框架'],raven:['#6c6b82','深靛灰紫・金屬月亮框架'],dragon:['#925b61','黑紅酒紅・金屬月亮框架']};
+ const paletteNames={cat:'黑紫',fox:'沙岩駝色',wolf:'黑藍',rabbit:'沙漠玫瑰粉',deer:'鼠尾草綠',bear:'咖啡大地色',raven:'深靛灰紫',dragon:'黑紅酒紅'};
  const names={cat:'月弦貓',fox:'琥珀狐',wolf:'霜狼',rabbit:'月桂兔',deer:'森語鹿',bear:'暮棕熊',raven:'星夜鴉',dragon:'曜焰龍'};
  const art={
-  gaming:{carnivore:'../assets/catalog/gaming-set.jpg',rabbit:'../assets/catalog/wood-gaming-rabbit.png',deer:'../assets/catalog/wood-gaming-deer.png'},
-  keyboard:{carnivore:'../assets/catalog/gaming-set.jpg',rabbit:'../assets/catalog/wood-gaming-rabbit.png',deer:'../assets/catalog/wood-gaming-deer.png'},
-  pod:{carnivore:'../assets/catalog/sleep-pod.jpg',rabbit:'../assets/catalog/wood-pod-rabbit.png',deer:'../assets/catalog/wood-pod-deer.png'},
-  chair:{carnivore:'../assets/catalog/crescent-chair-carnivore.png',herbivore:'../assets/catalog/crescent-chair-herbivore.png'},
-  feeder:{carnivore:'../assets/catalog/smart-feeder.jpg',rabbit:'../assets/catalog/wood-feeder-rabbit.png',deer:'../assets/catalog/wood-feeder-deer.png'},
-  companion:{carnivore:'../assets/catalog/companion-stand-carnivore.png',herbivore:'../assets/catalog/companion-stand-herbivore.png'}
+  gaming:{carnivore:'../assets/catalog/gaming-set.jpg',fox:'../assets/catalog/wood-gaming-fox.jpg?v=20261120f',rabbit:'../assets/catalog/wood-gaming-rabbit.jpg?v=20261120f',deer:'../assets/catalog/wood-gaming-deer.jpg?v=20261120f'},
+  keyboard:{carnivore:'../assets/catalog/gaming-set.jpg',fox:'../assets/catalog/wood-gaming-fox.jpg?v=20261120f',rabbit:'../assets/catalog/wood-gaming-rabbit.jpg?v=20261120f',deer:'../assets/catalog/wood-gaming-deer.jpg?v=20261120f'},
+  pod:{carnivore:'../assets/catalog/sleep-pod-carnivore.jpg?v=20261120f',fox:'../assets/catalog/wood-pod-fox.jpg?v=20261120f',rabbit:'../assets/catalog/wood-pod-rabbit.jpg?v=20261120f',deer:'../assets/catalog/wood-pod-deer.jpg?v=20261120f'},
+  chair:{carnivore:'../assets/catalog/crescent-chair-carnivore.jpg?v=20261120f',fox:'../assets/catalog/crescent-chair-fox.jpg?v=20261120f',rabbit:'../assets/catalog/crescent-chair-herbivore.jpg?v=20261120f',deer:'../assets/catalog/crescent-chair-deer.jpg?v=20261120f'},
+  feeder:{carnivore:'../assets/catalog/smart-feeder-carnivore.jpg?v=20261120f',fox:'../assets/catalog/wood-feeder-fox.jpg?v=20261120f',rabbit:'../assets/catalog/wood-feeder-rabbit.jpg?v=20261120f',deer:'../assets/catalog/wood-feeder-deer.jpg?v=20261120f'},
+  companion:{carnivore:'../assets/catalog/companion-stand-carnivore.jpg?v=20261120f',herbivore:'../assets/catalog/companion-stand-herbivore.jpg?v=20261120f'}
  };
  const welcome=document.getElementById('animalWelcome');
  const note=document.getElementById('animalMaterialNote');
+ document.querySelectorAll('.product-media').forEach(media=>{const mark=document.createElementNS('http://www.w3.org/2000/svg','svg');mark.setAttribute('class','product-guardian-mark');mark.setAttribute('viewBox','0 0 100 100');mark.setAttribute('aria-hidden','true');const use=document.createElementNS('http://www.w3.org/2000/svg','use');use.setAttribute('href','../assets/art/animal-line-icons.svg?v=20261120f#cat');mark.append(use);media.append(mark)});
  const validAnimal=key=>Object.hasOwn(animals,key);
  function chooseAnimal(key,save=true){
    if(!validAnimal(key))key='cat';
-   const [accent,desc]=animals[key],herbivore=key==='rabbit'||key==='deer',diet=herbivore?'herbivore':'carnivore';
+   const [accent,desc]=animals[key],lightTheme=key==='fox'||key==='rabbit'||key==='deer',diet=lightTheme?'light':'dark';
    document.documentElement.style.setProperty('--animal',accent);document.documentElement.style.setProperty('--animal-soft',accent+'44');
    document.documentElement.dataset.animal=key;document.body.dataset.diet=diet;
    document.querySelectorAll('.animal-tab').forEach(tab=>tab.setAttribute('aria-pressed',String(tab.dataset.animal===key)));
+   document.querySelectorAll('.product-guardian-mark use').forEach(use=>use.setAttribute('href',`../assets/art/animal-line-icons.svg?v=20261120f#${key}`));
    document.querySelectorAll('.product').forEach(card=>{
      const kind=card.dataset.product,variants=art[kind],img=card.querySelector('.product-media img');if(!variants||!img)return;
-     const src=herbivore?(variants[key]||variants.herbivore||variants.carnivore):variants.carnivore;
+     const src=variants[key]||(lightTheme?(variants.herbivore||variants.rabbit||variants.deer):variants.carnivore)||variants.carnivore;
      if(src){img.src=src;img.alt=`${names[key]}主題的${card.querySelector('.product-copy-art')?.alt?.split('。')[0]||'訂製商品'}，配合${desc}設計。`}
    });
    const line=`目前的守護動物：${names[key]}｜${desc}`;welcome.alt=line;
    welcome.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 100"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#a98b52"/><stop offset=".5" stop-color="#f0dfa9"/><stop offset="1" stop-color="#b9985b"/></linearGradient></defs><path d="M90 52h150m720 0h150" stroke="${accent}" fill="none" opacity=".85"/><text x="550" y="64" text-anchor="middle" fill="url(#g)" font-family="Noto Serif TC,BiauKai,KaiTi,serif" font-size="31" letter-spacing="4">${line}</text></svg>`);
-   note.textContent=herbivore?`草食｜木作 70%・${key==='rabbit'?'沙漠玫瑰粉':'鼠尾草綠'} 20%・暖白 10%｜太陽木架`:'肉食｜深色基底・金色月亮金屬｜黑色地毯';
+   note.textContent=lightTheme?`淺色風格｜木作 70%・${paletteNames[key]} 20%・暖白 10%｜太陽木架`:`深色風格｜${paletteNames[key]} × 深色金屬｜月亮框架`;
    document.getElementById('animalChoice').value=names[key];
-   document.getElementById('frameChoice').value=herbivore?'鏤空木作太陽框架':'月亮金屬細框';
-   document.getElementById('colorChoice').placeholder=key==='rabbit'?'沙漠玫瑰粉・低飽和搭配':key==='deer'?'鼠尾草綠・低飽和搭配':'依主題色調搭配';
+   document.getElementById('frameChoice').value=lightTheme?'鏤空木作太陽框架':'月亮金屬細框';
+   document.getElementById('colorChoice').placeholder=`${paletteNames[key]}・低飽和搭配`;
    if(save){try{localStorage.setItem('amoAnimalTheme',key)}catch{}}
  }
  document.querySelectorAll('.animal-tab').forEach(tab=>tab.addEventListener('click',()=>chooseAnimal(tab.dataset.animal)));
@@ -201,6 +204,6 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
  function escapeText(value){return String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
 })();
 </script>
-<script src="../assets/animal-theme.js?v=20261120b"></script>
+<script src="../assets/animal-theme.js?v=20261120f"></script>
 </body></html>
 
