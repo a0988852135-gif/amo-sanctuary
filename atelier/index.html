@@ -35,7 +35,6 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,40px);align-items:start}
 .product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:12px 0 15px;border-top:1px solid color-mix(in srgb,var(--animal) 54%,transparent);box-shadow:inset 0 1px 0 var(--animal-soft);background:linear-gradient(180deg,var(--animal-soft),transparent 42%);transition:border-color .45s ease,box-shadow .45s ease,background .45s ease}
 .product-media{position:relative;overflow:visible;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
-.product-guardian-mark{position:absolute;right:14px;bottom:14px;z-index:2;width:42px;height:42px;padding:7px;border:1px solid rgba(213,189,138,.48);border-radius:50%;background:rgba(5,14,28,.58);fill:none;stroke:#d5bd8a;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(213,189,138,.32));pointer-events:none}
 .product-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 74% 76% at center,transparent 48%,rgba(7,21,42,.18) 69%,rgba(7,21,42,.58) 100%);-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mix-blend-mode:multiply}
 .product-media img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;transition:transform .65s ease;-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%)}
 .product:hover .product-media img{transform:scale(1.018)}
@@ -165,7 +164,6 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
  };
  const welcome=document.getElementById('animalWelcome');
  const note=document.getElementById('animalMaterialNote');
- document.querySelectorAll('.product-media').forEach(media=>{const mark=document.createElementNS('http://www.w3.org/2000/svg','svg');mark.setAttribute('class','product-guardian-mark');mark.setAttribute('viewBox','0 0 100 100');mark.setAttribute('aria-hidden','true');const use=document.createElementNS('http://www.w3.org/2000/svg','use');use.setAttribute('href','../assets/art/animal-line-icons.svg?v=20261120f#cat');mark.append(use);media.append(mark)});
  const darkAnimals=new Set(['cat','wolf','bear','raven','dragon']);
  const catOverrides={gaming:'../assets/catalog/cat-gaming.jpg?v=20261120h',keyboard:'../assets/catalog/cat-keyboard.jpg?v=20261120h',chair:'../assets/catalog/cat-chair.jpg?v=20261120h',pod:'../assets/catalog/cat-pod.jpg?v=20261120h',companion:'../assets/catalog/cat-companion.jpg?v=20261120h'};
  const validAnimal=key=>Object.hasOwn(animals,key);
@@ -175,7 +173,6 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
    document.documentElement.style.setProperty('--animal',accent);document.documentElement.style.setProperty('--animal-soft',accent+'44');
    document.documentElement.dataset.animal=key;document.body.dataset.diet=diet;
    document.querySelectorAll('.animal-tab').forEach(tab=>tab.setAttribute('aria-pressed',String(tab.dataset.animal===key)));
-   document.querySelectorAll('.product-guardian-mark use').forEach(use=>use.setAttribute('href',`../assets/art/animal-line-icons.svg?v=20261120f#${key}`));
    document.querySelectorAll('.product').forEach(card=>{
      const kind=card.dataset.product,variants=art[kind],img=card.querySelector('.product-media img');if(!variants||!img)return;
      const src=(key==='cat'?catOverrides[kind]:null)||variants[key]||(darkAnimals.has(key)?`../assets/catalog/${key}-${kind}.jpg?v=20261120g`:null)||(lightTheme?(variants.herbivore||variants.rabbit||variants.deer):variants.carnivore)||variants.carnivore;
