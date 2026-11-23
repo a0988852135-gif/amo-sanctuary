@@ -1,0 +1,117 @@
+/* Every room shares one sky. The still image also covers the loading state. */
+body::before {
+  background: url("assets/catalog/meteor-nebula-blue.png") center / cover no-repeat;
+}
+
+.brand-moon {
+  position: relative;
+}
+
+.brand-moon::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--animal-soft), transparent 72%);
+  opacity: .55;
+  pointer-events: none;
+}
+
+.door-one { --door-light: #ffd08a; --door-period: 5s; }
+.door-two { --door-light: #d3dfff; --door-period: 8s; }
+.door-three { --door-light: #e5cbaa; --door-period: 7s; }
+
+.door-target::before {
+  border-color: color-mix(in srgb, var(--door-light) 48%, transparent);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--door-light) 38%, transparent);
+  opacity: .72;
+}
+
+.door-target::after {
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--door-light) 50%, transparent), transparent 70%);
+  opacity: .58;
+}
+
+.door-target:is(:hover, :focus-visible)::before,
+.door-target:is(:hover, :focus-visible)::after {
+  animation: none;
+  opacity: 1;
+}
+
+.door-target:focus-visible {
+  outline: 2px solid var(--door-light);
+  outline-offset: 3px;
+}
+
+.scene-light {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  opacity: .48;
+  pointer-events: none;
+}
+
+.scene-light--moon {
+  background: radial-gradient(ellipse at 50% 33%, #cbd8ff55, transparent 36%);
+}
+
+.scene-light--wish {
+  background: radial-gradient(ellipse at 50% 59%, #ffd09155, transparent 36%);
+}
+
+.scene-light--water {
+  background: radial-gradient(ellipse at 52% 70%, #9ddde55e, transparent 44%);
+}
+
+@keyframes halo-breathe {
+  0%, 100% { opacity: .47; }
+  52% { opacity: .92; }
+}
+
+@keyframes torch-breathe {
+  0%, 100% { opacity: .54; transform: scale(.97); }
+  27% { opacity: .82; transform: scale(1.04); }
+  43% { opacity: .68; transform: scale(1); }
+  68% { opacity: .94; transform: scale(1.08); }
+}
+
+@keyframes astrolabe-breathe {
+  0%, 100% { opacity: .48; transform: scale(.96); }
+  50% { opacity: .93; transform: scale(1.05); }
+}
+
+@keyframes bell-breathe {
+  0%, 100% { opacity: .45; transform: scale(.9); }
+  38% { opacity: .87; }
+  61% { opacity: .72; transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body::before {
+    background-image: url("assets/catalog/meteor-nebula.gif"), url("assets/catalog/meteor-nebula-blue.png");
+  }
+
+  .brand-moon::after { animation: halo-breathe 7s ease-in-out infinite; }
+  .door-target::before { animation: halo-breathe var(--door-period) ease-in-out infinite; }
+  .door-one::after { animation: torch-breathe var(--door-period) ease-in-out infinite; }
+  .door-two::after { animation: astrolabe-breathe var(--door-period) ease-in-out infinite; }
+  .door-three::after { animation: bell-breathe var(--door-period) ease-in-out infinite; }
+  .scene-light { animation: halo-breathe 9s ease-in-out infinite; }
+  .scene-light--water { animation-duration: 11s; }
+}
+
+@media (hover: none), (max-width: 540px) {
+  .door-target .door-label {
+    color: #fff1d3;
+    opacity: 1;
+    bottom: -16px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    background: #07152ae8;
+    white-space: nowrap;
+    line-height: 1.25;
+  }
+
+  .door-one .door-label { left: 0; transform: none; }
+  .door-one:is(:hover, :focus-visible) .door-label { transform: none; }
+}

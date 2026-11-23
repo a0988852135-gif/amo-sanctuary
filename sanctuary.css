@@ -3,7 +3,7 @@
 html{scroll-behavior:smooth;background:#07152a}
 body{position:relative;isolation:isolate;margin:0;min-height:100vh;background:#07152a;color:var(--pale);font-family:"Noto Serif TC",serif;overflow-x:hidden}
 body::before,body::after{content:"";position:fixed;inset:0;pointer-events:none}
-body::before{z-index:-2;background:url("assets/catalog/meteor-nebula.gif") center center/cover no-repeat}
+body::before{z-index:-2}
 body::after{z-index:-1;background:linear-gradient(180deg,rgba(4,12,26,.18),rgba(4,12,26,.28) 45%,rgba(4,12,26,.46))}
 a{color:var(--gold);text-decoration:none}
 .site-header{position:sticky;top:0;z-index:20;min-height:72px;padding:8px clamp(16px,4vw,52px);display:flex;align-items:center;justify-content:space-between;gap:22px;background:rgba(7,18,36,.28);border-bottom:1px solid rgba(213,189,138,.2);backdrop-filter:blur(3px)}
