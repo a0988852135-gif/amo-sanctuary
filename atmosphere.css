@@ -22,8 +22,9 @@ body::before {
 .door-three { --door-light: #e5cbaa; --door-period: 7s; }
 
 .door-target::before {
-  border-color: color-mix(in srgb, var(--door-light) 48%, transparent);
-  box-shadow: 0 0 22px color-mix(in srgb, var(--door-light) 38%, transparent);
+  border: 0;
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--door-light) 38%, transparent), transparent 70%);
+  box-shadow: none;
   opacity: .72;
 }
 
@@ -38,9 +39,13 @@ body::before {
   opacity: 1;
 }
 
-.door-target:focus-visible {
+.door-target:is(:hover, :focus-visible)::before {
+  box-shadow: none;
+}
+
+.door-target:focus-visible .door-label {
   outline: 2px solid var(--door-light);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 .scene-light {
