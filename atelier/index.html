@@ -34,11 +34,37 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .section-art{display:block;width:min(560px,72vw);height:auto;margin:14px auto 22px;filter:drop-shadow(0 0 9px rgba(213,189,138,.28))}
 .order-title-art{display:block;width:min(760px,86vw);height:auto;object-fit:contain;margin:14px auto 22px;filter:drop-shadow(0 0 10px rgba(213,189,138,.34))}
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,40px);align-items:start}
-.product{--product-accent:var(--animal);position:relative;min-width:0;text-align:center;padding:12px 0 15px;border-top:1px solid color-mix(in srgb,var(--animal) 54%,transparent);box-shadow:inset 0 1px 0 var(--animal-soft);background:linear-gradient(180deg,var(--animal-soft),transparent 42%);transition:border-color .45s ease,box-shadow .45s ease,background .45s ease}
-.product-media{position:relative;overflow:visible;margin:0 auto 12px;line-height:0;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
-.product-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 74% 76% at center,transparent 48%,rgba(7,21,42,.18) 69%,rgba(7,21,42,.58) 100%);-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.85) 72%,transparent 100%);mix-blend-mode:multiply}
-.product-media img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;transition:transform .65s ease;-webkit-mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%);mask-image:radial-gradient(ellipse 86% 88% at center,#000 48%,rgba(0,0,0,.94) 63%,rgba(0,0,0,.66) 80%,transparent 100%)}
-.product:hover .product-media img{transform:scale(1.018)}
+.product{min-width:0;text-align:center;padding:0 0 15px}
+.product-media{
+  --frame-gilt:color-mix(in srgb,#dab883 85%,var(--animal));
+  position:relative;isolation:isolate;box-sizing:border-box;
+  width:min(100%,520px);aspect-ratio:1;margin:0 auto 12px;
+  padding:clamp(6px,1vw,10px);overflow:hidden;line-height:0;
+  border:1px solid transparent;border-radius:clamp(7px,1.2vw,13px);
+  background:
+    radial-gradient(ellipse at 50% 44%,color-mix(in srgb,#111220 85%,var(--animal)),#0a0a13 78%) padding-box,
+    linear-gradient(135deg,#725538,var(--frame-gilt) 26%,#6b4d37 52%,var(--frame-gilt) 76%,#76593d) border-box;
+  box-shadow:0 7px 16px rgba(2,6,19,.28)
+}
+.product-media::before,.product-media::after{
+  content:"";position:absolute;pointer-events:none;z-index:1
+}
+.product-media::before{
+  inset:3px;border:1px solid color-mix(in srgb,var(--frame-gilt) 32%,transparent);
+  border-radius:inherit
+}
+.product-media::after{
+  inset:4px;
+  background:
+    radial-gradient(ellipse at 0 0,transparent 49%,var(--frame-gilt) 52%,var(--frame-gilt) 55%,transparent 59%) top left,
+    radial-gradient(ellipse at 100% 0,transparent 49%,var(--frame-gilt) 52%,var(--frame-gilt) 55%,transparent 59%) top right,
+    radial-gradient(ellipse at 0 100%,transparent 49%,var(--frame-gilt) 52%,var(--frame-gilt) 55%,transparent 59%) bottom left,
+    radial-gradient(ellipse at 100% 100%,transparent 49%,var(--frame-gilt) 52%,var(--frame-gilt) 55%,transparent 59%) bottom right;
+  background-repeat:no-repeat;background-size:18px 13px;opacity:.76
+}
+.product-media img{
+  display:block;width:100%;height:100%;object-fit:contain
+}
 .product h3{margin:7px 0 4px;color:#f0dfb6;font:400 clamp(17px,2.1vw,23px)/1.5 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.12em;text-shadow:0 1px 12px #020817}
 .product p{max-width:490px;margin:4px auto 0;color:rgba(239,229,207,.9);font:13px/1.9 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.06em;text-shadow:0 1px 10px #020817}
 .product .price{margin-top:6px;color:#ddc99c;font-size:12px;letter-spacing:.1em}
@@ -70,7 +96,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .hidden-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .atelier-footer{margin-top:20px;text-align:center;color:rgba(235,223,199,.68);font:10px/1.9 system-ui,sans-serif;letter-spacing:.12em}
 @media(max-width:700px){.atelier-main{width:calc(100% - 22px)}.product-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto;gap:27px}.animal-rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));justify-content:stretch;gap:7px 3px;overflow:visible;scrollbar-width:none;width:100%;margin:8px auto 24px}.animal-tab{flex:none;width:auto;min-width:0;padding:0 1px 5px}.animal-art{width:min(100%,64px);height:124px}.animal-label{font-size:8px;letter-spacing:.08em}.animal-tab[data-animal="fox"]::before{display:none}.animal-tab:nth-child(n+5){border-top:1px solid rgba(213,189,138,.18);padding-top:7px}.order-form{grid-template-columns:1fr}.field.wide,.order-form fieldset,.form-note,.order-submit{grid-column:1}.address-grid{grid-template-columns:1fr}.order-area{margin-top:35px;padding-inline:2px}}
-@media(prefers-reduced-motion:reduce){.product-media img,.animal-tab,.product button,.order-submit{transition:none}}
+@media(prefers-reduced-motion:reduce){.animal-tab,.product button,.order-submit{transition:none}}
 </style>
 </head>
 <body>
