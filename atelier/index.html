@@ -65,6 +65,23 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
 .product-media img{
   display:block;width:100%;height:100%;object-fit:contain
 }
+.product-media[data-keyboard-room="fox"]{
+  --keyboard-room:url("../assets/catalog/amber-fox-keyboard-room.jpg");
+  --keyboard-top:30.7%
+}
+.product-media[data-keyboard-room="dragon"]{
+  --keyboard-room:url("../assets/catalog/luxury-dragon-keyboard-room.jpg");
+  --keyboard-top:29.9%
+}
+.keyboard-room{display:none}
+.product-media[data-keyboard-room] .keyboard-room{
+  display:block;position:absolute;inset:clamp(6px,1vw,10px);
+  background:var(--keyboard-room) center/contain no-repeat
+}
+.product-media[data-keyboard-room] img{
+  position:relative;height:auto;margin-top:var(--keyboard-top);
+  mask-image:linear-gradient(transparent,#000 10%,#000 88%,transparent 92%)
+}
 .product h3{margin:7px 0 4px;color:#f0dfb6;font:400 clamp(17px,2.1vw,23px)/1.5 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.12em;text-shadow:0 1px 12px #020817}
 .product p{max-width:490px;margin:4px auto 0;color:rgba(239,229,207,.9);font:13px/1.9 "Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.06em;text-shadow:0 1px 10px #020817}
 .product .price{margin-top:6px;color:#ddc99c;font-size:12px;letter-spacing:.1em}
@@ -147,7 +164,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
       <img class="product-copy-art" src="../assets/art/product-companion.svg?v=20261119" alt="毛陪陪視線支架。依毛孩體型與設備高度調整，遊戲途中也能一眼看見小小隊友。依尺寸與材質報價。"><button type="button" data-select-product="毛陪陪視線支架" aria-label="選擇毛陪陪視線支架"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
     <article class="product" data-product="keyboard">
-      <figure class="product-media"><img src="../assets/catalog/gaming-set.jpg" alt="黑曜石外觀與爪刺鏤空金屬支架的客製電競鍵盤" loading="lazy" decoding="async"></figure>
+      <figure class="product-media"><span class="keyboard-room" aria-hidden="true"></span><img src="../assets/catalog/gaming-set.jpg" alt="黑曜石外觀與爪刺鏤空金屬支架的客製電競鍵盤" loading="lazy" decoding="async"></figure>
       <img class="product-copy-art" src="../assets/art/product-keyboard.svg?v=20261120b" alt="星月訂製鍵盤。按鍵、木作或金屬支架與燈光依守護動物主題搭配。"><button type="button" data-select-product="星月訂製鍵盤" aria-label="選擇星月訂製鍵盤"><img src="../assets/art/cta-select.svg?v=20261119" alt="選擇此珍藏"></button>
     </article>
   </section>
@@ -203,6 +220,11 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
    document.querySelectorAll('.product').forEach(card=>{
      const kind=card.dataset.product,variants=art[kind],img=card.querySelector('.product-media img');if(!variants||!img)return;
      const src=(key==='cat'?catOverrides[kind]:null)||variants[key]||(darkAnimals.has(key)?`../assets/catalog/${key}-${kind}.jpg?v=20261120g`:null)||(lightTheme?(variants.herbivore||variants.rabbit||variants.deer):variants.carnivore)||variants.carnivore;
+     if(kind==='keyboard'){
+       const media=img.parentElement;
+       if(key==='fox'||key==='dragon')media.dataset.keyboardRoom=key;
+       else delete media.dataset.keyboardRoom;
+     }
      if(src){img.src=src;img.alt=`${names[key]}主題的${card.querySelector('.product-copy-art')?.alt?.split('。')[0]||'訂製商品'}，配合${desc}設計。`}
    });
    const line=`目前的守護動物：${names[key]}｜${desc}`;welcome.alt=line;
