@@ -69,7 +69,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
   --keyboard-room:url("../assets/catalog/amber-fox-keyboard-room.jpg");
   --keyboard-top:30.7%
 }
-.product-media[data-keyboard-room="dragon"]{
+.product-media[data-keyboard-room="dragon"],.product-media[data-keyboard-room="cat"]{
   --keyboard-room:url("../assets/catalog/luxury-dragon-keyboard-room.jpg");
   --keyboard-top:29.9%
 }
@@ -203,13 +203,13 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
   keyboard:{dragon:'../assets/catalog/luxury-dragon-keyboard.jpg?v=20261126',fox:'../assets/catalog/amber-fox-keyboard.jpg?v=20261126',rabbit:'../assets/catalog/wood-keyboard-rabbit.jpg?v=20261120g',deer:'../assets/catalog/wood-keyboard-deer.jpg?v=20261120g'},
   pod:{fox:'../assets/catalog/amber-fox-pod.jpg?v=20261126',rabbit:'../assets/catalog/wood-pod-rabbit.jpg?v=20261120g',deer:'../assets/catalog/wood-pod-deer.jpg?v=20261120g'},
   chair:{dragon:'../assets/catalog/luxury-dragon-chair.jpg?v=20261126',fox:'../assets/catalog/amber-fox-chair.jpg?v=20261126',rabbit:'../assets/catalog/crescent-chair-herbivore.jpg?v=20261120g',deer:'../assets/catalog/crescent-chair-deer.jpg?v=20261120g'},
-  feeder:{fox:'../assets/catalog/amber-fox-feeder.jpg?v=20261126',rabbit:'../assets/catalog/wood-feeder-rabbit.jpg?v=20261120g',deer:'../assets/catalog/wood-feeder-deer.jpg?v=20261120g',cat:'../assets/catalog/cat-feeder.jpg?v=20261120h',wolf:'../assets/catalog/wolf-feeder.jpg?v=20261120h',bear:'../assets/catalog/bear-feeder.jpg?v=20261120h',raven:'../assets/catalog/raven-feeder.jpg?v=20261120h',dragon:'../assets/catalog/luxury-dragon-feeder.jpg?v=20261126'},
+  feeder:{fox:'../assets/catalog/amber-fox-feeder.jpg?v=20261126',rabbit:'../assets/catalog/wood-feeder-rabbit.jpg?v=20261120g',deer:'../assets/catalog/wood-feeder-deer.jpg?v=20261120g',cat:'../assets/catalog/moonstring-cat-feeder.jpg?v=20261127',wolf:'../assets/catalog/wolf-feeder.jpg?v=20261120h',bear:'../assets/catalog/bear-feeder.jpg?v=20261120h',raven:'../assets/catalog/raven-feeder.jpg?v=20261120h',dragon:'../assets/catalog/luxury-dragon-feeder.jpg?v=20261126'},
   companion:{fox:'../assets/catalog/amber-fox-companion.jpg?v=20261126',rabbit:'../assets/catalog/rabbit-companion.jpg?v=20261120g',deer:'../assets/catalog/deer-companion.jpg?v=20261120g',carnivore:'../assets/catalog/companion-stand-carnivore.jpg?v=20261120f',herbivore:'../assets/catalog/companion-stand-herbivore.jpg?v=20261120f'}
  };
  const welcome=document.getElementById('animalWelcome');
  const note=document.getElementById('animalMaterialNote');
  const darkAnimals=new Set(['cat','wolf','bear','raven','dragon']);
- const catOverrides={gaming:'../assets/catalog/cat-gaming.jpg?v=20261120h',keyboard:'../assets/catalog/cat-keyboard.jpg?v=20261120h',chair:'../assets/catalog/cat-chair.jpg?v=20261120h',pod:'../assets/catalog/cat-pod.jpg?v=20261120h',companion:'../assets/catalog/cat-companion.jpg?v=20261120h'};
+ const catOverrides={gaming:'../assets/catalog/moonstring-cat-gaming.jpg?v=20261127',keyboard:'../assets/catalog/moonstring-cat-keyboard.jpg?v=20261127',chair:'../assets/catalog/moonstring-cat-chair.jpg?v=20261127',pod:'../assets/catalog/moonstring-cat-pod.jpg?v=20261127',companion:'../assets/catalog/moonstring-cat-companion.jpg?v=20261127'};
  const validAnimal=key=>Object.hasOwn(animals,key);
  function chooseAnimal(key,save=true){
    if(!validAnimal(key))key='cat';
@@ -222,7 +222,7 @@ body::after{background:linear-gradient(180deg,rgba(4,12,26,.1),rgba(4,12,26,.2) 
      const src=(key==='cat'?catOverrides[kind]:null)||variants[key]||(darkAnimals.has(key)?`../assets/catalog/${key}-${kind}.jpg?v=20261120g`:null)||(lightTheme?(variants.herbivore||variants.rabbit||variants.deer):variants.carnivore)||variants.carnivore;
      if(kind==='keyboard'){
        const media=img.parentElement;
-       if(key==='fox'||key==='dragon')media.dataset.keyboardRoom=key;
+       if(key==='cat'||key==='fox'||key==='dragon')media.dataset.keyboardRoom=key;
        else delete media.dataset.keyboardRoom;
      }
      if(src){img.src=src;img.alt=`${names[key]}主題的${card.querySelector('.product-copy-art')?.alt?.split('。')[0]||'訂製商品'}，配合${desc}設計。`}
